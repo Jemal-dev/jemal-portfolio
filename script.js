@@ -1,134 +1,371 @@
-/* ========================================
-   MOBILE NAVIGATION
-======================================== */
-
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.querySelector(".nav-links");
-
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   JAVASCRIPT
+===================================================== */
 
 
-/* ========================================
-   CLOSE MOBILE MENU
-   WHEN A LINK IS CLICKED
-======================================== */
+/* =====================================================
+   TYPING ANIMATION
+===================================================== */
 
-const navItems = document.querySelectorAll(".nav-links a");
+const typingElement =
+    document.getElementById("typing");
 
-navItems.forEach((link) => {
+const typingWords = [
+    "Web Developer",
+    "Programmer",
+    "Computer Science Student",
+    "Software Developer",
+    "Problem Solver"
+];
 
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
-
-    });
-
-});
+let wordIndex = 0;
+let characterIndex = 0;
+let deleting = false;
 
 
-/* ========================================
-   HEADER SCROLL EFFECT
-======================================== */
+function typeEffect() {
 
-const header = document.querySelector(".header");
+    if (!typingElement) {
+        return;
+    }
 
-window.addEventListener("scroll", () => {
+    const currentWord =
+        typingWords[wordIndex];
 
-    if (window.scrollY > 50) {
 
-        header.style.background =
-            "rgba(10, 10, 15, 0.95)";
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(
+                0,
+                characterIndex + 1
+            );
+
+        characterIndex++;
+
+
+        if (
+            characterIndex ===
+            currentWord.length
+        ) {
+
+            deleting = true;
+
+            setTimeout(
+                typeEffect,
+                1600
+            );
+
+            return;
+        }
 
     } else {
 
-        header.style.background =
-            "rgba(10, 10, 15, 0.75)";
+        typingElement.textContent =
+            currentWord.substring(
+                0,
+                characterIndex - 1
+            );
 
+        characterIndex--;
+
+
+        if (characterIndex === 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+
+            if (
+                wordIndex >=
+                typingWords.length
+            ) {
+
+                wordIndex = 0;
+            }
+        }
     }
 
-});
+
+    const speed =
+        deleting ? 50 : 100;
 
 
-/* ========================================
-   REVEAL SECTIONS ON SCROLL
-======================================== */
+    setTimeout(
+        typeEffect,
+        speed
+    );
+}
 
-const sections = document.querySelectorAll(".section");
 
-const revealObserver = new IntersectionObserver(
-    (entries) => {
+typeEffect();
 
-        entries.forEach((entry) => {
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("show");
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
+const menuButton =
+    document.getElementById("menuButton");
+
+const sidebar =
+    document.getElementById("sidebar");
+
+
+if (
+    menuButton &&
+    sidebar
+) {
+
+    menuButton.addEventListener(
+        "click",
+        function () {
+
+            sidebar.classList.toggle(
+                "mobile-open"
+            );
+
+
+            const icon =
+                menuButton.querySelector("i");
+
+
+            if (
+                sidebar.classList.contains(
+                    "mobile-open"
+                )
+            ) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Close menu"
+                );
+
+            } else {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
             }
+        }
+    );
+}
 
-        });
 
-    },
-    {
-        threshold: 0.15
+
+/* =====================================================
+   CLOSE MOBILE MENU
+   AFTER CLICKING NAVIGATION
+===================================================== */
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav-link"
+    );
+
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                if (sidebar) {
+
+                    sidebar.classList.remove(
+                        "mobile-open"
+                    );
+                }
+
+
+                if (menuButton) {
+
+                    const icon =
+                        menuButton.querySelector("i");
+
+
+                    if (icon) {
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+                    }
+
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Open menu"
+                    );
+                }
+            }
+        );
     }
 );
 
 
-sections.forEach((section) => {
 
-    revealObserver.observe(section);
+/* =====================================================
+   REVEAL SECTIONS ON SCROLL
+===================================================== */
 
-});
+const sections =
+    document.querySelectorAll(
+        ".content-section"
+    );
 
 
-/* ========================================
-   ACTIVE NAVIGATION LINK
-======================================== */
+if (
+    "IntersectionObserver" in window
+) {
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            function (entries) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+                        }
+                    }
+                );
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    sections.forEach(
+        function (section) {
+
+            revealObserver.observe(
+                section
+            );
+        }
+    );
+
+} else {
+
+    sections.forEach(
+        function (section) {
+
+            section.classList.add(
+                "show"
+            );
+        }
+    );
+}
+
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
 
 const allSections =
-    document.querySelectorAll("section[id]");
+    document.querySelectorAll(
+        "section[id]"
+    );
 
-window.addEventListener("scroll", () => {
+
+function updateActiveNavigation() {
 
     let currentSection = "";
 
-    allSections.forEach((section) => {
 
-        const sectionTop =
-            section.offsetTop - 150;
+    allSections.forEach(
+        function (section) {
 
-        const sectionHeight =
-            section.offsetHeight;
+            const sectionTop =
+                section.offsetTop - 180;
 
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
+            const sectionHeight =
+                section.offsetHeight;
 
-            currentSection =
-                section.getAttribute("id");
 
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY <
+                sectionTop + sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute(
+                        "id"
+                    );
+            }
         }
+    );
 
-    });
+
+    navLinks.forEach(
+        function (link) {
+
+            link.classList.remove(
+                "active"
+            );
 
 
-    navItems.forEach((link) => {
+            if (
+                link.getAttribute("href") ===
+                "#" + currentSection
+            ) {
 
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            `#${currentSection}`
-        ) {
-
-            link.classList.add("active");
-
+                link.classList.add(
+                    "active"
+                );
+            }
         }
+    );
+}
 
-    });
 
-});
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation
+);
+
+
+window.addEventListener(
+    "load",
+    updateActiveNavigation
+);
