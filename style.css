@@ -1220,3 +1220,834 @@ button {
     }
 
 }
+
+
+
+
+
+/* =====================================================
+   PROFESSIONAL ANDROID / MOBILE RESPONSIVE DESIGN
+   Paste this section at the VERY BOTTOM of style.css
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* -------------------------------------------------
+       GENERAL
+    ------------------------------------------------- */
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* -------------------------------------------------
+       MOBILE HEADER
+    ------------------------------------------------- */
+
+    .mobile-header {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 60px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 18px;
+
+        background: #1d1d1d;
+
+        z-index: 2000;
+    }
+
+    .mobile-name {
+        font-size: 18px;
+
+        font-weight: 700;
+
+        color: white;
+    }
+
+    .menu-button {
+        width: 40px;
+        height: 40px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        border-radius: 6px;
+
+        background: #292929;
+
+        color: white;
+
+        font-size: 18px;
+
+        cursor: pointer;
+    }
+
+
+    /* -------------------------------------------------
+       SIDEBAR
+    ------------------------------------------------- */
+
+    .sidebar {
+        width: 270px;
+
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.3s ease;
+
+        z-index: 1900;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+
+    /* -------------------------------------------------
+       MAIN CONTENT
+    ------------------------------------------------- */
+
+    .main-content {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 0;
+    }
+
+
+    /* -------------------------------------------------
+       HOME
+    ------------------------------------------------- */
+
+    .home {
+        min-height: 100vh;
+
+        padding:
+            90px 22px 50px;
+
+        display: flex;
+
+        align-items: center;
+    }
+
+    .home-content {
+        width: 100%;
+    }
+
+    .home-content h1 {
+        font-size: 18px;
+
+        line-height: 1.4;
+    }
+
+    .home-content h2 {
+        font-size: 42px;
+
+        line-height: 1.1;
+
+        margin: 10px 0;
+    }
+
+    .typing-container {
+        font-size: 19px;
+
+        line-height: 1.5;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* -------------------------------------------------
+       GENERAL SECTIONS
+    ------------------------------------------------- */
+
+    .content-section {
+        width: 100%;
+
+        padding:
+            60px 20px;
+    }
+
+    .section-title {
+        margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+
+        line-height: 1.2;
+    }
+
+    .title-line {
+        max-width: 70px;
+    }
+
+
+    /* -------------------------------------------------
+       ABOUT
+    ------------------------------------------------- */
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .about-photo {
+        width: 180px;
+        height: 180px;
+
+        margin: 0 auto;
+    }
+
+    .about-text {
+        text-align: left;
+    }
+
+    .about-text h3 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    /* -------------------------------------------------
+       ABOUT DETAILS
+    ------------------------------------------------- */
+
+    .details-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 25px;
+    }
+
+    .detail {
+        display: flex;
+
+        gap: 6px;
+
+        margin-left: 0;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+        flex-wrap: wrap;
+    }
+
+    .detail strong {
+        min-width: 90px;
+    }
+
+
+    /* -------------------------------------------------
+       SKILLS
+    ------------------------------------------------- */
+
+    .skills-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .skills-intro {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .skill {
+        margin-bottom: 20px;
+    }
+
+    .skill-top {
+        font-size: 15px;
+    }
+
+    .skill-bar {
+        height: 9px;
+    }
+
+
+    /* -------------------------------------------------
+       RESUME
+    ------------------------------------------------- */
+
+    .resume-box {
+        padding: 25px 18px;
+
+        margin-bottom: 30px;
+    }
+
+    .resume-box h3 {
+        font-size: 22px;
+    }
+
+    .resume-box p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+    .resume-buttons {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .resume-button {
+        width: 100%;
+
+        max-width: 280px;
+
+        justify-content: center;
+
+        padding: 12px 18px;
+
+        font-size: 17px;
+    }
+
+
+    /* -------------------------------------------------
+       PORTFOLIO
+    ------------------------------------------------- */
+
+    .portfolio-heading {
+        font-size: 20px;
+
+        line-height: 1.4;
+
+        margin-bottom: 25px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .portfolio-card {
+        width: 100%;
+
+        overflow: hidden;
+
+        border-radius: 8px;
+    }
+
+    .portfolio-image {
+        width: 100%;
+
+        height: auto;
+    }
+
+    .portfolio-image img {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+
+        object-fit: cover;
+    }
+
+    .portfolio-info {
+        padding: 18px;
+    }
+
+    .portfolio-info h3 {
+        font-size: 20px;
+
+        margin-bottom: 8px;
+    }
+
+    .portfolio-info p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .portfolio-links {
+        display: flex;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+
+        margin-top: 15px;
+    }
+
+    .portfolio-links a {
+        padding: 9px 14px;
+
+        font-size: 14px;
+    }
+
+
+    /* -------------------------------------------------
+       SERVICES
+    ------------------------------------------------- */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .service {
+        display: flex;
+
+        gap: 15px;
+
+        align-items: flex-start;
+    }
+
+    .service-icon {
+        width: 42px;
+        height: 42px;
+
+        flex-shrink: 0;
+
+        font-size: 15px;
+    }
+
+    .service h3 {
+        font-size: 17px;
+
+        line-height: 1.4;
+
+        margin-bottom: 6px;
+    }
+
+    .service p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    /* -------------------------------------------------
+       SPECIAL THANKS / CONTACT
+    ------------------------------------------------- */
+
+    .thanks-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .contact-box,
+    .thank-you-box {
+        width: 100%;
+    }
+
+    .contact-box {
+        padding: 20px;
+    }
+
+    .contact-item {
+        gap: 12px;
+
+        margin-bottom: 18px;
+    }
+
+    .contact-item > i {
+        width: 36px;
+        height: 36px;
+
+        flex-shrink: 0;
+
+        font-size: 13px;
+    }
+
+    .contact-item strong {
+        font-size: 14px;
+    }
+
+    .contact-item p {
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        word-break: break-word;
+    }
+
+    .thank-you-box {
+        padding: 22px;
+    }
+
+    .thank-you-box h3 {
+        font-size: 20px;
+    }
+
+    .thank-you-box p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .thank-you-box li {
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin-bottom: 8px;
+    }
+
+
+    /* -------------------------------------------------
+       FOOTER
+    ------------------------------------------------- */
+
+    .footer {
+        padding: 20px 15px;
+
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL ANDROID PHONES
+   480px and below
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .mobile-header {
+        height: 58px;
+
+        padding: 0 15px;
+    }
+
+    .mobile-name {
+        font-size: 17px;
+    }
+
+    .home {
+        padding:
+            80px 18px 45px;
+    }
+
+    .home-content h2 {
+        font-size: 36px;
+    }
+
+    .typing-container {
+        font-size: 17px;
+    }
+
+    .content-section {
+        padding:
+            50px 18px;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .about-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .detail {
+        font-size: 14px;
+    }
+
+    .detail strong {
+        min-width: 85px;
+    }
+
+    .skills-intro {
+        font-size: 15px;
+    }
+
+    .resume-box h3 {
+        font-size: 20px;
+    }
+
+    .resume-box p {
+        font-size: 14px;
+    }
+
+    .resume-button {
+        font-size: 16px;
+
+        max-width: 260px;
+    }
+
+    .portfolio-heading {
+        font-size: 18px;
+    }
+
+    .portfolio-info h3 {
+        font-size: 18px;
+    }
+
+    .portfolio-info p {
+        font-size: 13px;
+    }
+
+    .service h3 {
+        font-size: 16px;
+    }
+
+    .service p {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL ANDROID PHONES
+   360px and below
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .mobile-name {
+        font-size: 16px;
+    }
+
+    .home-content h2 {
+        font-size: 32px;
+    }
+
+    .typing-container {
+        font-size: 16px;
+    }
+
+    .content-section {
+        padding:
+            45px 15px;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+    .detail {
+        font-size: 13px;
+    }
+
+    .resume-button {
+        max-width: 240px;
+
+        font-size: 15px;
+    }
+
+    .service {
+        gap: 10px;
+    }
+
+    .service-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+
+/* =====================================================
+   ANDROID HOME / HERO FIX
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .home {
+        min-height: 100vh;
+
+        padding: 80px 20px 40px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .home-content {
+        width: 100%;
+
+        text-align: left;
+
+        margin-top: 80px;
+    }
+
+    .home-content h2 {
+        font-size: 42px;
+
+        line-height: 1.1;
+
+        margin-bottom: 15px;
+    }
+
+    .typing-container {
+        font-size: 19px;
+
+        line-height: 1.5;
+
+        display: flex;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 5px;
+    }
+}
+
+
+/* =====================================================
+   ANDROID HOME / HERO
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .home {
+        min-height: 100vh;
+
+        padding: 80px 20px 40px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        /* Keep laptop background fixed */
+        background-attachment: fixed;
+
+        /* Make laptop smaller */
+        background-size: 80% auto;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+    }
+
+
+    .home-content {
+        width: 100%;
+
+        text-align: left;
+
+        margin-top: 40px;
+    }
+
+
+    .home-content h2 {
+        font-size: 42px;
+
+        line-height: 1.1;
+
+        margin-bottom: 15px;
+    }
+
+
+    .typing-container {
+        font-size: 19px;
+
+        line-height: 1.5;
+
+        display: flex;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 5px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL ANDROID PHONES
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .home {
+        padding:
+            75px 18px 35px;
+
+        background-size: 85% auto;
+
+        background-position: center center;
+    }
+
+    .home-content {
+        margin-top: 30px;
+    }
+
+    .home-content h2 {
+        font-size: 36px;
+    }
+
+    .typing-container {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL ANDROID PHONES
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .home {
+        background-size: 90% auto;
+    }
+
+    .home-content h2 {
+        font-size: 32px;
+    }
+
+    .typing-container {
+        font-size: 16px;
+    }
+
+}
+
