@@ -77,7 +77,6 @@ function typeEffect() {
 
             wordIndex++;
 
-
             if (
                 wordIndex >=
                 typingWords.length
@@ -114,6 +113,122 @@ const menuButton =
 const sidebar =
     document.getElementById("sidebar");
 
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+/* =====================================================
+   GET MENU ICON
+===================================================== */
+
+function getMenuIcon() {
+
+    if (!menuButton) {
+        return null;
+    }
+
+    return menuButton.querySelector("i");
+}
+
+
+
+/* =====================================================
+   UPDATE MENU ICON
+===================================================== */
+
+function updateMenuIcon() {
+
+    if (!menuButton) {
+        return;
+    }
+
+    const icon =
+        getMenuIcon();
+
+    const isOpen =
+        sidebar &&
+        sidebar.classList.contains("mobile-open");
+
+
+    if (icon) {
+
+        if (isOpen) {
+
+            icon.classList.remove(
+                "fa-bars"
+            );
+
+            icon.classList.add(
+                "fa-xmark"
+            );
+
+        } else {
+
+            icon.classList.remove(
+                "fa-xmark"
+            );
+
+            icon.classList.add(
+                "fa-bars"
+            );
+        }
+    }
+
+
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Close menu"
+            : "Open menu"
+    );
+
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+            ? "true"
+            : "false"
+    );
+}
+
+
+
+/* =====================================================
+   OPEN / CLOSE MOBILE MENU
+===================================================== */
+
+function closeMobileMenu() {
+
+    if (!sidebar) {
+        return;
+    }
+
+    sidebar.classList.remove(
+        "mobile-open"
+    );
+
+    updateMenuIcon();
+}
+
+
+function openMobileMenu() {
+
+    if (!sidebar) {
+        return;
+    }
+
+    sidebar.classList.add(
+        "mobile-open"
+    );
+
+    updateMenuIcon();
+}
+
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
 
 if (
     menuButton &&
@@ -124,48 +239,19 @@ if (
         "click",
         function () {
 
-            sidebar.classList.toggle(
-                "mobile-open"
-            );
-
-
-            const icon =
-                menuButton.querySelector("i");
-
-
-            if (
+            const isOpen =
                 sidebar.classList.contains(
                     "mobile-open"
-                )
-            ) {
-
-                icon.classList.remove(
-                    "fa-bars"
                 );
 
-                icon.classList.add(
-                    "fa-xmark"
-                );
 
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Close menu"
-                );
+            if (isOpen) {
+
+                closeMobileMenu();
 
             } else {
 
-                icon.classList.remove(
-                    "fa-xmark"
-                );
-
-                icon.classList.add(
-                    "fa-bars"
-                );
-
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Open menu"
-                );
+                openMobileMenu();
             }
         }
     );
@@ -174,15 +260,8 @@ if (
 
 
 /* =====================================================
-   CLOSE MOBILE MENU
-   AFTER CLICKING NAVIGATION
+   CLOSE MENU AFTER NAVIGATION
 ===================================================== */
-
-const navLinks =
-    document.querySelectorAll(
-        ".nav-link"
-    );
-
 
 navLinks.forEach(
     function (link) {
@@ -191,39 +270,90 @@ navLinks.forEach(
             "click",
             function () {
 
-                if (sidebar) {
-
-                    sidebar.classList.remove(
-                        "mobile-open"
-                    );
-                }
-
-
-                if (menuButton) {
-
-                    const icon =
-                        menuButton.querySelector("i");
-
-
-                    if (icon) {
-
-                        icon.classList.remove(
-                            "fa-xmark"
-                        );
-
-                        icon.classList.add(
-                            "fa-bars"
-                        );
-                    }
-
-
-                    menuButton.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
-                }
+                closeMobileMenu();
             }
         );
+    }
+);
+
+
+
+/* =====================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !sidebar ||
+            !menuButton
+        ) {
+            return;
+        }
+
+
+        const isMobile =
+            window.innerWidth <= 768;
+
+
+        if (!isMobile) {
+            return;
+        }
+
+
+        const isMenuOpen =
+            sidebar.classList.contains(
+                "mobile-open"
+            );
+
+
+        if (!isMenuOpen) {
+            return;
+        }
+
+
+        const clickedInsideSidebar =
+            sidebar.contains(
+                event.target
+            );
+
+
+        const clickedMenuButton =
+            menuButton.contains(
+                event.target
+            );
+
+
+        if (
+            !clickedInsideSidebar &&
+            !clickedMenuButton
+        ) {
+
+            closeMobileMenu();
+        }
+    }
+);
+
+
+
+/* =====================================================
+   CLOSE MOBILE MENU WHEN RESIZING
+   FROM MOBILE TO DESKTOP
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function () {
+
+        if (
+            window.innerWidth > 768 &&
+            sidebar
+        ) {
+
+            closeMobileMenu();
+        }
     }
 );
 
@@ -309,23 +439,32 @@ const allSections =
 
 function updateActiveNavigation() {
 
+    if (!allSections.length) {
+        return;
+    }
+
+
     let currentSection = "";
+
+
+    const scrollPosition =
+        window.scrollY + 220;
 
 
     allSections.forEach(
         function (section) {
 
             const sectionTop =
-                section.offsetTop - 180;
+                section.offsetTop;
 
-            const sectionHeight =
+            const sectionBottom =
+                sectionTop +
                 section.offsetHeight;
 
 
             if (
-                window.scrollY >= sectionTop &&
-                window.scrollY <
-                sectionTop + sectionHeight
+                scrollPosition >= sectionTop &&
+                scrollPosition < sectionBottom
             ) {
 
                 currentSection =
@@ -337,6 +476,20 @@ function updateActiveNavigation() {
     );
 
 
+    /*
+       If the user is at the very top,
+       keep Home active.
+    */
+
+    if (
+        window.scrollY < 100 &&
+        document.getElementById("home")
+    ) {
+
+        currentSection = "home";
+    }
+
+
     navLinks.forEach(
         function (link) {
 
@@ -345,8 +498,14 @@ function updateActiveNavigation() {
             );
 
 
+            const href =
+                link.getAttribute(
+                    "href"
+                );
+
+
             if (
-                link.getAttribute("href") ===
+                href ===
                 "#" + currentSection
             ) {
 
@@ -359,13 +518,39 @@ function updateActiveNavigation() {
 }
 
 
+
+/* =====================================================
+   SCROLL EVENTS
+===================================================== */
+
 window.addEventListener(
     "scroll",
-    updateActiveNavigation
+    updateActiveNavigation,
+    {
+        passive: true
+    }
 );
 
+
+
+/* =====================================================
+   INITIALIZE ACTIVE NAVIGATION
+===================================================== */
 
 window.addEventListener(
     "load",
-    updateActiveNavigation
+    function () {
+
+        updateActiveNavigation();
+
+        updateMenuIcon();
+    }
 );
+
+
+
+/* =====================================================
+   INITIALIZE MENU STATE
+===================================================== */
+
+updateMenuIcon();
