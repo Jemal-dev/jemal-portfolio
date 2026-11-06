@@ -1,0 +1,606 @@
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   SERVICES FOR CLIENTS
+===================================================== */
+
+
+/* =====================================================
+   1. GENERAL SECTION
+===================================================== */
+
+.services-section {
+
+    --services-bg: #0a0f1a;
+    --services-card: #080f1d;
+    --services-border: #10384f;
+
+    --services-cyan: #00b9ed;
+    --services-cyan-light: #22d3ee;
+
+    --services-white: #f8fafc;
+    --services-gray: #cbd5e1;
+    --services-muted: #94a3b8;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 65px 25px 100px;
+
+    background: var(--services-bg);
+    color: var(--services-white);
+
+    box-sizing: border-box;
+
+}
+
+.services-section *,
+.services-section *::before,
+.services-section *::after {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   2. MAIN CONTAINER
+===================================================== */
+
+.services-page-container {
+
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   3. PAGE HEADER
+===================================================== */
+
+.services-page-header {
+
+    max-width: 950px;
+
+    margin: 0 auto 58px;
+
+    text-align: center;
+
+}
+
+
+.services-page-header h2 {
+
+    margin: 0 0 15px;
+
+    color: #f8fafc;
+
+    font-size: clamp(36px, 5vw, 55px);
+
+    font-weight: 750;
+
+    letter-spacing: -1.8px;
+
+    line-height: 1.2;
+
+}
+
+
+.services-page-header > p {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    color: #94a3b8;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   4. FEATURE BADGES
+===================================================== */
+
+.services-benefits {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 23px;
+
+}
+
+
+.services-benefits span {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 8px 16px;
+
+    background: rgba(0, 185, 237, 0.08);
+
+    border: 1px solid rgba(0, 185, 237, 0.30);
+
+    border-radius: 30px;
+
+    color: #d8f5ff;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+.services-benefits i {
+
+    color: var(--services-cyan);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   5. CYAN TITLE DIVIDER
+===================================================== */
+
+.services-title-line {
+
+    width: 118px;
+    height: 5px;
+
+    margin: 20px auto 0;
+
+    background: var(--services-cyan);
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 15px rgba(0, 185, 237, 0.25);
+
+}
+
+
+/* =====================================================
+   6. THREE-COLUMN SERVICE GRID
+===================================================== */
+
+.service-package-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    align-items: stretch;
+
+    gap: 38px;
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   7. SERVICE CARDS
+===================================================== */
+
+.service-package-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    min-width: 0;
+    min-height: 480px;
+
+    padding: 32px 30px 29px;
+
+    background: var(--services-card);
+
+    border: 1px solid var(--services-border);
+
+    border-radius: 21px;
+
+    box-shadow:
+        0 0 18px rgba(0, 185, 237, 0.055),
+        0 12px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.service-package-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 185, 237, 0.55);
+
+    box-shadow:
+        0 0 25px rgba(0, 185, 237, 0.12),
+        0 15px 35px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* =====================================================
+   8. SERVICE CARD CONTENT
+===================================================== */
+
+.service-card-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+}
+
+
+.service-card-content h3 {
+
+    margin: 0 0 13px;
+
+    color: var(--services-cyan);
+
+    font-size: 23px;
+
+    font-weight: 650;
+
+    line-height: 1.5;
+
+    letter-spacing: -0.4px;
+
+}
+
+
+/* =====================================================
+   9. PROJECT SCOPE AND BUDGET
+===================================================== */
+
+.service-timeline {
+
+    margin: 0 0 11px;
+
+    color: var(--services-muted);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+.service-budget {
+
+    margin: 0 0 29px;
+
+    color: var(--services-cyan-light);
+
+    font-size: 15px;
+
+    font-weight: 650;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   10. WHAT YOU GET
+===================================================== */
+
+.service-includes {
+
+    width: 100%;
+
+}
+
+
+.service-includes h4 {
+
+    margin: 0 0 7px;
+
+    color: var(--services-cyan-light);
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.3px;
+
+}
+
+
+.service-includes ul {
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.service-includes li {
+
+    position: relative;
+
+    padding-left: 12px;
+
+    color: var(--services-gray);
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+}
+
+
+.service-includes li::before {
+
+    content: "-";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--services-gray);
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   11. CARD DIVIDER
+===================================================== */
+
+.service-card-divider {
+
+    width: 100%;
+    height: 1px;
+
+    margin: 16px 0;
+
+    background: #26364b;
+
+}
+
+
+/* =====================================================
+   12. IDEAL FOR
+===================================================== */
+
+.service-best-for {
+
+    margin-bottom: 22px;
+
+}
+
+
+.service-best-for > span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--services-cyan);
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+.service-best-for p {
+
+    margin: 0;
+
+    color: var(--services-muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   13. REQUEST BUTTON
+===================================================== */
+
+.service-request-button {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+    min-height: 45px;
+
+    padding: 12px 15px;
+
+    background: var(--services-cyan);
+
+    border: 1px solid var(--services-cyan);
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.service-request-button:hover {
+
+    background: #009bd0;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 18px rgba(0, 185, 237, 0.2);
+
+}
+
+
+.service-request-button i {
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   14. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .services-page-container {
+
+        max-width: 900px;
+
+    }
+
+    .service-package-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 25px;
+
+    }
+
+    .service-package-card {
+
+        min-height: 450px;
+
+    }
+
+}
+
+
+/* =====================================================
+   15. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .services-section {
+
+        padding: 55px 18px 75px;
+
+    }
+
+    .services-page-header {
+
+        margin-bottom: 40px;
+
+    }
+
+    .services-page-header h2 {
+
+        font-size: 34px;
+
+    }
+
+    .services-page-header > p {
+
+        font-size: 15px;
+
+    }
+
+    .services-benefits {
+
+        gap: 9px;
+
+    }
+
+    .services-benefits span {
+
+        font-size: 11px;
+
+        padding: 7px 11px;
+
+    }
+
+    .service-package-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+    }
+
+    .service-package-card {
+
+        min-height: 420px;
+
+        padding: 25px 23px;
+
+    }
+
+    .service-card-content h3 {
+
+        font-size: 21px;
+
+    }
+
+}
+
+
+/* =====================================================
+   16. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-package-card,
+    .service-request-button {
+
+        transition: none;
+
+    }
+
+}

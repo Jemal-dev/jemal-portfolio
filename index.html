@@ -54,13 +54,35 @@
     >
 
     <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+>
+
+<!-- Devicon Programming Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+>
+
 
     <!-- Existing stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="progress.css">
+    <link rel="stylesheet" href="skills.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="workflow.css">
+    <link rel="stylesheet" href="case-studies.css">
+    <link rel="stylesheet" href="contact.css">
+
+
+<!-- Footer stylesheet -->
+<link rel="stylesheet" href="footer.css">
 
     <!-- Structured data: your professional identity -->
     <script type="application/ld+json">
@@ -102,176 +124,51 @@
 <body>
 
 
-<!-- ==============================
-     MOBILE HEADER
-=============================== -->
+<!-- =========================================
+     JEMAL SEID - CENTERED NAVIGATION
+========================================= -->
 
-<header class="mobile-header">
+<div class="nav-overlay">
 
-    <div class="mobile-name">
-        Jemal Seid
-    </div>
+    <header class="site-header">
 
-    <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Open menu"
-        type="button"
-    >
-        <i class="fa-solid fa-bars"></i>
-    </button>
+        <!-- LOGO -->
+        <a href="#home" class="nav-logo" aria-label="Jemal Seid Home">
+            Jemal<span>Seid</span>
+        </a>
 
-</header>
+        <!-- NAVIGATION -->
+        <nav class="navigation" aria-label="Main navigation">
 
-
-<!-- ==============================
-     SIDEBAR
-=============================== -->
-
-<aside
-    class="sidebar"
-    id="sidebar"
->
-
-    <!-- PROFILE -->
-
-    <div class="profile">
-
-        <div class="profile-image">
-
-            <img
-                src="images/profile.jpg"
-                alt="Jemal Seid profile photo"
-            >
-
-        </div>
-
-        <h1>
-            Jemal Seid
-        </h1>
-
-
-        <!-- SOCIAL LINKS -->
-
-        <div class="social-links">
-
-            <a
-                href="https://github.com/Jemal-dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-            >
-                <i class="fa-brands fa-github"></i>
-            </a>
-
-
-            <a
-                href="https://www.linkedin.com/in/jemal-seid-255450399/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-            >
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- NAVIGATION -->
-
-    <nav
-        class="navigation"
-        aria-label="Main navigation"
-    >
-
-        <a
-            href="#home"
-            class="nav-link active"
-        >
-            <i class="fa-solid fa-house"></i>
-
-            <span>
+            <a href="#home" class="nav-link active">
                 Home
-            </span>
-        </a>
+            </a>
 
-
-        <a
-            href="#about"
-            class="nav-link"
-        >
-            <i class="fa-regular fa-user"></i>
-
-            <span>
+            <a href="#about" class="nav-link">
                 About
-            </span>
-        </a>
+            </a>
 
+            <a href="#resume" class="nav-link">
+                Education
+            </a>
 
-        <a
-            href="#skills"
-            class="nav-link"
-        >
-            <i class="fa-solid fa-code"></i>
-
-            <span>
+            <a href="#skills" class="nav-link">
                 Skills
-            </span>
-        </a>
+            </a>
 
+            <a href="#portfolio" class="nav-link">
+                Projects
+            </a>
 
-        <a
-            href="#resume"
-            class="nav-link"
-        >
-            <i class="fa-regular fa-file-lines"></i>
+            <a href="#thanks" class="nav-link">
+                Contact
+            </a>
 
-            <span>
-                Resume &amp; Certificate
-            </span>
-        </a>
+        </nav>
 
+    </header>
 
-        <a
-            href="#portfolio"
-            class="nav-link"
-        >
-            <i class="fa-regular fa-folder-open"></i>
-
-            <span>
-                Portfolio
-            </span>
-        </a>
-
-
-        <a
-            href="#services"
-            class="nav-link"
-        >
-            <i class="fa-solid fa-layer-group"></i>
-
-            <span>
-                Services
-            </span>
-        </a>
-
-
-        <a
-            href="#thanks"
-            class="nav-link"
-        >
-            <i class="fa-regular fa-heart"></i>
-
-            <span>
-                Special Thanks
-            </span>
-        </a>
-
-    </nav>
-
-</aside>
+</div>
 
 
 <!-- ==============================
@@ -281,516 +178,1464 @@
 <main class="main-content">
 
 
-    <!-- ==============================
-         HOME
-    =============================== -->
+   <!-- ==============================
+     HOME / HERO SECTION
+=============================== -->
 
-    <section
-        id="home"
-        class="home"
-    >
+<section id="home" class="home">
 
-        <div class="home-content">
+    <div class="home-content">
 
-            <h2>
-                Jemal Seid
-            </h2>
+        <h1 class="home-title">
+            I build
+            <span>modern web applications</span>
+            that solve real-world problems.
+        </h1>
 
-            <div class="typing-container">
+        <h3 class="home-role">
+            
+            <span id="typing" class="typing"></span>
+        </h3>
 
-                <span>
-                    I'm
-                </span>
-
-                <span
-                    id="typing"
-                    class="typing"
-                ></span>
-
-            </div>
+        <div class="home-intro">
+            I help individuals, businesses, and growing teams turn ideas
+             into functional digital products.
+             From modern websites to full-stack applications and management systems, 
+             I focus on building responsive, user-friendly, and reliable solutions through clean code, 
+             thoughtful design, and effective problem-solving.
 
         </div>
 
-    </section>
+        <div class="home-tags">
+            <span>Frontend + Backend</span>
+            <span>Problem Solving</span>
+            <span>Telegram Bots</span>
+            <span>Database Management</span>
+        </div>
 
+        <div class="home-actions">
 
-    <!-- ==============================
-         ABOUT
-    =============================== -->
+            <a href="mailto:jemal2415@gmail.com?subject=Project%20Inquiry"
+               class="home-button primary-button">
+                Start a Project
+            </a>
 
-    <section
-        id="about"
-        class="content-section about-section"
-    >
+            <a href="#portfolio"
+               class="home-button secondary-button">
+                View Projects 
+            </a>
 
-        <div class="section-title">
-
-            <h2>
-                About
-            </h2>
-
-            <div class="title-line"></div>
+            <a href="assets/Jemal-Seid-CV.pdf"
+               download
+               class="home-button resume-button">
+                Download Resume
+            </a>
 
         </div>
 
+    </div>
 
-        <p class="about-intro">
-            I am a Computer Science student and aspiring
-            Web Developer passionate about technology,
-            programming and creating useful digital solutions.
-            I enjoy learning new technologies and turning
-            ideas into practical and user-friendly applications.
-        </p>
+    <div class="home-visual">
+
+        <div class="home-photo-ring">
+
+            <img
+                src="images/profile.jpg"
+                alt="Jemal Seid - Software Developer"
+            >
+
+        </div>
+
+    </div>
+
+</section>
 
 
-        <div class="about-container">
+ 
+<!-- ==============================
+     ABOUT SECTION
+=============================== -->
 
-            <div class="about-photo">
+<section id="about" class="content-section about-section">
+    <div class="about-container">
 
-                <img
-                    src="images/profile.jpg"
-                    alt="Jemal Seid"
-                >
+        <!-- About Profile Image -->
+        <div class="about-photo">
+            <img
+                src="images/profile.jpg"
+                alt="Jemal Seid - Software Developer"
+            >
+        </div>
+
+        
+
+        
+
+        <!-- RIGHT: ABOUT CONTENT -->
+        <div class="about-content">
+
+            <!-- SECTION TITLE -->
+            <div class="section-title">
+                <h2>About <span>Me</span></h2>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- EXPERIENCE AND EXPERTISE CARDS -->
+            <div class="about-stats">
+
+                <div class="about-stat-card">
+                    
+                    <h3>2+ Years</h3>
+                    <p>Web Development</p>
+                </div>
+
+                <div class="about-stat-card">
+                    
+                    <h3>2+ Years</h3>
+                    <p>API Integration</p>
+                </div>
+
+
+                <div class="about-stat-card">
+                    
+                    <h3>2+ Years</h3>
+                    <p>Telegram Bots</p>
+                </div>
+
+                <div class="about-stat-card">
+                    
+                    <h3>Ongoing</h3>
+                    <p>Bug fixing</p>
+                </div>
 
             </div>
 
+            
 
+            <!-- EXPERTISE TAGS -->
+            <div class="about-tags">
+                <span>Frontend Engineering</span>
+                <span>Backend Development</span>
+                <span>Production Bug Fixes</span>
+                <span>Integration Workflows</span>
+                
+            </div>
+
+            <!-- BIOGRAPHY -->
             <div class="about-details">
 
-                <h3>
-                    Computer Science Student &amp; Web Developer
-                </h3>
+                
 
                 <p>
-                    I am studying Computer Science at Arsi University.
-                    My interests include web development, software
-                    development, databases, programming and problem solving.
+                    I am a Computer Science student focused on building practical,
+                     reliable, and user-centered software solutions. I enjoy turning ideas into functional 
+                     web applications, with an emphasis on clean architecture, maintainable code, 
+                     and intuitive user experiences.
+                </p>
+
+                <p>
+                    I work across frontend and backend development, using technologies
+                     such as JavaScript, React, Node.js, Express.js, Java, and MySQL. 
+                     My experience includes developing full-stack applications, 
+                     designing and integrating REST APIs, managing databases,
+                      building Telegram bots, and debugging software to improve
+                       functionality and reliability.
+                </p>
+
+                <p>
+                    Beyond coding, I am passionate about continuous learning, problem-solving,
+                     and exploring emerging technologies. I approach every project with curiosity,
+                      responsibility, and a commitment to building solutions that solve real-world problems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EDUCATION SECTION
+     REPLACE YOUR EXISTING RESUME SECTION
+========================================= -->
+
+<section id="resume" class="content-section education-section">
+
+    <div class="education-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="education-page-header">
+
+            <span class="education-eyebrow">
+                ACADEMIC BACKGROUND
+            </span>
+
+            <h1>
+                My <span>Educational</span> Journey
+            </h1>
+
+            <p>
+                Blending academic excellence with continuous
+                self-paced learning.
+            </p>
+
+        </div>
+
+<!-- =================================
+     SECTION 1: FORMAL EDUCATION
+================================== -->
+
+<div class="education-block">
+
+    <!-- SECTION HEADING -->
+
+    <div class="education-section-heading">
+
+        <h2>
+            Formal <span>Education</span>
+        </h2>
+
+        <div class="education-divider"></div>
+
+    </div>
+
+
+    <!-- =================================
+         TWO COLUMN LAYOUT
+    ================================== -->
+
+    <div class="formal-education-layout">
+
+
+        <!-- =================================
+             LEFT: UNIVERSITY INFORMATION
+        ================================== -->
+
+        <article class="formal-education-card">
+
+            <div class="formal-card-header">
+
+                <div class="formal-university-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span class="formal-status">
+                    <span class="green-status-dot"></span>
+                    Currently Studying
+                </span>
+
+            </div>
+
+
+            <div class="formal-card-content">
+
+                <span class="formal-card-label">
+                    UNDERGRADUATE EDUCATION
+                </span>
+
+                <h3>
+                    Arsi University
+                </h3>
+
+                <p class="formal-description">
+                    Pursuing a Bachelor of Science degree in
+                    Computer Science, developing knowledge in
+                    programming, computing, software development,
+                    and problem-solving.
                 </p>
 
 
-                <div class="details-grid">
+                <!-- INFORMATION ROWS -->
 
-                    <div class="detail">
-                        <strong>Name:</strong>
-                        <span>Jemal Seid</span>
+                <div class="formal-info-list">
+
+                    <div class="formal-info-row">
+
+                        <div class="formal-info-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <div>
+                            <span>Field of Study</span>
+                            <strong>Computer Science</strong>
+                        </div>
+
                     </div>
 
-                    <div class="detail">
-                        <strong>Role:</strong>
-                        <span>Web Developer</span>
+
+                    <div class="formal-info-row">
+
+                        <div class="formal-info-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+
+                        <div>
+                            <span>Degree</span>
+                            <strong>Bachelor of Science (BSc)</strong>
+                        </div>
+
                     </div>
 
-                    <div class="detail">
-                        <strong>Education:</strong>
-                        <span>Computer Science</span>
+
+                    <div class="formal-info-row">
+
+                        <div class="formal-info-icon">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </div>
+
+                        <div>
+                            <span>Graduation Year</span>
+                            <strong>Expected June 2028</strong>
+                        </div>
+
                     </div>
 
-                    <div class="detail">
-                        <strong>University:</strong>
-                        <span>Arsi University</span>
-                    </div>
+                </div>
 
-                    <div class="detail">
-                        <strong>GitHub:</strong>
-                        <span>Jemal-dev</span>
-                    </div>
 
-                    <div class="detail">
-                        <strong>Status:</strong>
-                        <span>Available for opportunities</span>
-                    </div>
+                <!-- COURSEWORK -->
+
+                <div class="coursework-area">
+
+                    <h4>
+                        Relevant Coursework &amp; Study Areas
+                    </h4>
+
+                    <ul class="coursework-list">
+
+                        <li>Java Programming</li>
+
+                        <li>Data Structures &amp; Algorithms</li>
+
+                        <li>Computer Programming</li>
+
+                        <li>Fundamentals of Database Systems</li>
+
+                        <li>Software Engineering</li>
+
+                        <li>Web Programming</li>
+
+                        <li>Computer Organization and Architecture</li>
+
+                    </ul>
 
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </article>
 
 
-    <!-- ==============================
-         SKILLS
-    =============================== -->
+        <!-- =================================
+             RIGHT: PROGRAM PROGRESS
+        ================================== -->
 
-    <section
-        id="skills"
-        class="content-section skills-section"
-    >
+        <div class="program-progress-section">
 
-        <div class="section-title">
+            <article class="program-progress-card">
 
-            <h2>
-                Skills
-            </h2>
-
-            <div class="title-line"></div>
-
-        </div>
-
-
-        <p class="skills-intro">
-            I continuously develop my technical skills through
-            university studies, personal projects and practical
-            software development.
-        </p>
-
-
-        <div class="skills-container">
-
-
-            <!-- PROGRAMMING LANGUAGES -->
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-
-                <h3>
-                    Programming Languages
+                <h3 class="program-progress-title">
+                    Program Progress
                 </h3>
 
-                <div class="skill-tags">
 
-                    <span>JavaScript</span>
-                    <span>Python</span>
-                    <span>C++</span>
-                    <span>Java</span>
-                    <span>Dart</span>
+                <!-- CIRCULAR GAUGE -->
 
-                </div>
+                <div class="progress-circle-container">
 
-            </div>
+                    <svg
+                        class="progress-circle"
+                        viewBox="0 0 200 200"
+                        role="img"
+                        aria-label="Program progress: 80 percent"
+                    >
 
+                        <circle
+                            class="progress-circle-track"
+                            cx="100"
+                            cy="100"
+                            r="86"
+                        />
 
-            <!-- FRONTEND -->
+                        <circle
+                            class="progress-circle-fill"
+                            cx="100"
+                            cy="100"
+                            r="86"
+                        />
 
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-
-                <h3>
-                    Frontend Development
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>React.js</span>
-                    <span>Flutter</span>
-
-                </div>
-
-            </div>
+                    </svg>
 
 
-            <!-- BACKEND & DATABASE -->
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    <i class="fa-solid fa-server"></i>
-                </div>
-
-                <h3>
-                    Backend &amp; Database
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>Node.js</span>
-                    <span>Express.js</span>
-                    <span>MySQL</span>
-                    <span>REST APIs</span>
+                    <div class="progress-circle-value">
+                        <span>80%</span>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <p class="program-progress-subtitle">
+                    Expected completion trajectory
+                </p>
 
-            <!-- TOOLS & PLATFORMS -->
-
-            <div class="skill-card">
-
-                <div class="skill-icon">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </div>
-
-                <h3>
-                    Tools &amp; Platforms
-                </h3>
-
-                <div class="skill-tags">
-
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Vercel</span>
-                    <span>VS Code</span>
-                    <span>XAMPP</span>
-                    <span>LaTeX</span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         RESUME
-    =============================== -->
-
-    <section
-        id="resume"
-        class="content-section resume-section"
-    >
-
-        <div class="section-title">
-
-            <h2>
-                Resume &amp; Certificate
-            </h2>
-
-            <div class="title-line"></div>
+            </article>
 
         </div>
 
 
-        <div class="resume-box">
+    </div>
+    <!-- END TWO COLUMN LAYOUT -->
+
+
+</div>
+<!-- END FORMAL EDUCATION -->
+
+
+        <!-- =========================================
+     SECTION 2: ONLINE LEARNING
+========================================= -->
+
+<div class="online-learning-block">
+
+    <!-- SECTION HEADER -->
+
+    <div class="online-learning-header">
+
+        <h2>
+            <span>Online</span> Learning
+        </h2>
+
+        <div class="online-learning-divider"></div>
+
+    </div>
+
+
+    <!-- THREE-COLUMN LEARNING GRID -->
+
+    <div class="online-learning-grid">
+
+
+        <!-- CARD 1: FRONTEND -->
+
+        <article class="online-learning-card">
+
+            <div class="online-learning-platform">
+                MDN Web Docs
+            </div>
 
             <h3>
-                View my resume and certificate
+                Front-End Development Fundamentals
             </h3>
 
             <p>
-                Download my resume and view my certificates.
+                Learn the foundations of modern web development,
+                including HTML, CSS, JavaScript, responsive layouts,
+                and accessible web interfaces.
+            </p>
+
+            <a
+                href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="online-learning-link"
+            >
+                View Program
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </article>
+
+
+        <!-- CARD 2: REACT -->
+
+        <article class="online-learning-card">
+
+            <div class="online-learning-platform">
+                React Documentation
+            </div>
+
+            <h3>
+                React Front-End Development
+            </h3>
+
+            <p>
+                Explore component-based development, JSX, props,
+                state management, events, and building interactive
+                user interfaces with React.
+            </p>
+
+            <a
+                href="https://react.dev/learn"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="online-learning-link"
+            >
+                View Program
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </article>
+
+
+        <!-- CARD 3: BACKEND -->
+
+        <article class="online-learning-card">
+
+            <div class="online-learning-platform">
+                Node.js Documentation
+            </div>
+
+            <h3>
+                Backend Development with Node.js
+            </h3>
+
+            <p>
+                Study server-side JavaScript, asynchronous
+                programming, application development, and
+                the fundamentals of backend systems.
+            </p>
+
+            <a
+                href="https://nodejs.org/en/learn"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="online-learning-link"
+            >
+                View Program
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+
+
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     TECHNICAL SKILLS SECTION
+     REPLACE YOUR EXISTING SKILLS SECTION
+========================================= -->
+
+<section id="skills" class="content-section skills-section">
+
+    <div class="skills-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="skills-page-header">
+
+            <h2>Technical Skills</h2>
+
+        </div>
+
+
+        <!-- SKILLS GRID -->
+
+        <div class="skills-grid">
+
+
+            <!-- =================================
+                 01. FRONTEND
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>Frontend</h3>
+
+                <p class="skill-category-description">
+                    Interfaces, interaction, and responsive web experiences.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="devicon-html5-plain colored"></i>
+                        <span>HTML5</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-css3-plain colored"></i>
+                        <span>CSS3</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-typescript-plain colored"></i>
+                        <span>TypeScript</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-react-original colored"></i>
+                        <span>React</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 02. BACKEND
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>Backend</h3>
+
+                <p class="skill-category-description">
+                    Server-side development, application logic,
+                    and backend systems.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>Python</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-django-plain colored"></i>
+                        <span>Django</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-java-plain colored"></i>
+                        <span>Java</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-csharp-plain colored"></i>
+                        <span>C#</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 03. DATABASE
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>Database</h3>
+
+                <p class="skill-category-description">
+                    Data storage, querying, and structured
+                    information management.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="devicon-mysql-plain colored"></i>
+                        <span>MySQL</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-postgresql-plain colored"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-sqlite-plain colored"></i>
+                        <span>SQLite</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-mongodb-plain colored"></i>
+                        <span>MongoDB</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 04. API INTEGRATION & DEBUGGING
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>API Integration &amp; Debugging</h3>
+
+                <p class="skill-category-description">
+                    Connecting services, troubleshooting errors,
+                    and improving application reliability.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="fa-solid fa-server api-icon-blue"></i>
+                        <span>REST API Integration</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="fa-solid fa-bug api-icon-yellow"></i>
+                        <span>Backend Debugging</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="fa-solid fa-code api-icon-blue"></i>
+                        <span>Frontend Debugging</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="fa-solid fa-triangle-exclamation api-icon-orange"></i>
+                        <span>Issue Triage &amp; Fixes</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 05. FRAMEWORKS & LIBRARIES
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>Frameworks &amp; Libraries</h3>
+
+                <p class="skill-category-description">
+                    Frameworks and libraries for creating
+                    consistent and efficient interfaces.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="devicon-nextjs-original"></i>
+                        <span>Next.js</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-bootstrap-plain colored"></i>
+                        <span>Bootstrap</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-tailwindcss-plain colored"></i>
+                        <span>Tailwind CSS</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="fa-solid fa-layer-group shadcn-icon"></i>
+                        <span>Shadcn UI</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 06. TOOLS
+            ================================== -->
+
+            <article class="skill-category-card">
+
+                <h3>Tools</h3>
+
+                <p class="skill-category-description">
+                    Development environments, source control,
+                    and debugging utilities.
+                </p>
+
+                <div class="skill-items">
+
+                    <div class="skill-item">
+                        <i class="devicon-git-plain colored"></i>
+                        <span>Git</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-github-original github-icon"></i>
+                        <span>GitHub</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-vscode-plain colored"></i>
+                        <span>VS Code</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="devicon-react-original colored"></i>
+                        <span>React Developer Tools</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+ 
+<!-- =========================================
+     SERVICES FOR CLIENTS
+========================================= -->
+
+<section id="services" class="content-section services-section">
+
+    <div class="services-page-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="services-page-header">
+
+            <h2>Services for Clients</h2>
+
+            <p>
+                Practical development solutions, clear project scope,
+                and reliable delivery to help turn your ideas into
+                functional digital products.
             </p>
 
 
-            <div class="resume-buttons">
+            <!-- FEATURE BADGES -->
+
+            <div class="services-benefits">
+
+                <span>
+                    <i class="fa-solid fa-bolt"></i>
+                    Clear Project Scope
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-list-check"></i>
+                    Practical Milestones
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    Deployment Support
+                </span>
+
+            </div>
+
+            <div class="services-title-line"></div>
+
+        </div>
+
+
+        <!-- =================================
+             SERVICE PACKAGE GRID
+        ================================== -->
+
+        <div class="service-package-grid">
+
+
+            <!-- =================================
+                 SERVICE 1: LANDING PAGE
+            ================================== -->
+
+            <article class="service-package-card">
+
+                <div class="service-card-content">
+
+                    <h3>Landing Page Development</h3>
+
+                    <p class="service-timeline">
+                        Project scope: Customized to your requirements
+                    </p>
+
+                    <p class="service-budget">
+                        Budget: Discussed after project scope
+                    </p>
+
+
+                    <div class="service-includes">
+
+                        <h4>WHAT YOU GET</h4>
+
+                        <ul>
+                            <li>Responsive landing page</li>
+                            <li>Contact section and call-to-action</li>
+                            <li>Performance and basic SEO setup</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="service-card-divider"></div>
+
+
+                    <div class="service-best-for">
+
+                        <span>IDEAL FOR</span>
+
+                        <p>
+                            Personal brands, businesses, portfolios,
+                            and new product launches.
+                        </p>
+
+                    </div>
+
+                </div>
+
 
                 <a
-                    href="assets/Jemal-Seid-CV.pdf"
-                    class="resume-button"
-                    download
+                    href="mailto:jemal2415@gmail.com?subject=Landing%20Page%20Development%20Inquiry"
+                    class="service-request-button"
                 >
-                    <i class="fa-solid fa-download"></i>
-                    Download Resume
+                    Request This Service
+                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
+
+            </article>
+
+
+            <!-- =================================
+                 SERVICE 2: DASHBOARD MVP
+            ================================== -->
+
+            <article class="service-package-card">
+
+                <div class="service-card-content">
+
+                    <h3>Dashboard &amp; MVP Development</h3>
+
+                    <p class="service-timeline">
+                        Project scope: Based on application features
+                    </p>
+
+                    <p class="service-budget">
+                        Budget: Discussed after project scope
+                    </p>
+
+
+                    <div class="service-includes">
+
+                        <h4>WHAT YOU GET</h4>
+
+                        <ul>
+                            <li>Organized dashboard interface</li>
+                            <li>CRUD and data management workflows</li>
+                            <li>REST API and database integration</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="service-card-divider"></div>
+
+
+                    <div class="service-best-for">
+
+                        <span>IDEAL FOR</span>
+
+                        <p>
+                            Small businesses, administration systems,
+                            and early-stage application ideas.
+                        </p>
+
+                    </div>
+
+                </div>
 
 
                 <a
-                    href="assets/certificates.pdf"
-                    class="resume-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:jemal2415@gmail.com?subject=Dashboard%20and%20MVP%20Development%20Inquiry"
+                    class="service-request-button"
                 >
-                    <i class="fa-solid fa-certificate"></i>
-                    View Certificate
+                    Request This Service
+                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
 
+            </article>
+
+
+            <!-- =================================
+                 SERVICE 3: TELEGRAM BOT
+            ================================== -->
+
+            <article class="service-package-card">
+
+                <div class="service-card-content">
+
+                    <h3>Telegram Automation Bot</h3>
+
+                    <p class="service-timeline">
+                        Project scope: Customized bot functionality
+                    </p>
+
+                    <p class="service-budget">
+                        Budget: Discussed after project scope
+                    </p>
+
+
+                    <div class="service-includes">
+
+                        <h4>WHAT YOU GET</h4>
+
+                        <ul>
+                            <li>Custom commands and interaction flows</li>
+                            <li>API and database integration</li>
+                            <li>Testing, deployment, and handover</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="service-card-divider"></div>
+
+
+                    <div class="service-best-for">
+
+                        <span>IDEAL FOR</span>
+
+                        <p>
+                            Communities, organizations, businesses,
+                            and workflow automation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="mailto:jemal2415@gmail.com?subject=Telegram%20Bot%20Development%20Inquiry"
+                    class="service-request-button"
+                >
+                    Request This Service
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CLIENT FEEDBACK SECTION
+========================================= -->
+
+<section id="feedback" class="content-section feedback-section">
+
+    <div class="feedback-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="feedback-header">
+
+            <h2>Client Feedback</h2>
+
+            <p>
+                Feedback covering frontend, backend, API integration,
+                Telegram bot delivery, and bug-fix execution.
+            </p>
+
+
+            <!-- FEATURE TAGS -->
+
+            <div class="feedback-tags">
+
+                <span class="feedback-tag">
+                    Clear communication
+                </span>
+
+                <span class="feedback-tag active">
+                    Milestone delivery
+                </span>
+
+                <span class="feedback-tag">
+                    Clean handover
+                </span>
+
             </div>
+
+            <div class="feedback-title-line"></div>
 
         </div>
 
 
-        <div class="resume-columns">
+        <!-- =================================
+             FEEDBACK CARDS
+        ================================== -->
+
+        <div class="feedback-grid">
 
 
-            <!-- SUMMARY -->
+            <!-- CARD 1 -->
 
-            <div class="resume-column">
+            <article class="feedback-card">
+
+                <div class="feedback-quote-icon">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+
+                <p class="feedback-quote">
+                    “Jemal delivered our frontend 
+                    dashboard and backend APIs with
+                     clean architecture and clear weekly
+                      progress updates.”
+                </p>
+
+                <div class="feedback-divider"></div>
+
+                <div class="feedback-author">
+
+                    <h3>SaaS Product Manager</h3>
+
+                    <span>Private Client</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+
+            <article class="feedback-card">
+
+                <div class="feedback-quote-icon">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+
+                <p class="feedback-quote">
+                    “Strong engineering discipline and
+                     fast iteration. The Telegram bot 
+                     and API integrations reduced 
+                     repetitive manual work for our team.”
+                </p>
+
+                <div class="feedback-divider"></div>
+
+                <div class="feedback-author">
+
+                    <h3>Operations Lead</h3>
+
+                    <span>Community Platform</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+
+            <article class="feedback-card">
+
+                <div class="feedback-quote-icon">
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+
+                <p class="feedback-quote">
+                    “Reliable, collaborative, and detail-
+                    oriented. Jemal quickly fixed critical
+                     bugs, improved stability, and documented
+                      handover professionally.”
+                </p>
+
+                <div class="feedback-divider"></div>
+
+                <div class="feedback-author">
+
+                    <h3>Technical Coordinator</h3>
+
+                    <span>SMB Project Team</span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     HOW I WORK SECTION
+========================================= -->
+
+<section id="workflow" class="content-section workflow-section">
+
+    <div class="workflow-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="workflow-header">
+
+            <h2>How I Work</h2>
+
+            <p>
+                A structured workflow focused on clarity,
+                execution speed, and reliable delivery.
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             WORKFLOW CARDS
+        ================================== -->
+
+        <div class="workflow-grid">
+
+
+            <!-- =================================
+                 STEP 1: DISCOVER
+            ================================== -->
+
+            <article class="workflow-card">
+
+                <div class="workflow-number">
+                    1
+                </div>
 
                 <h3>
-                    <i class="fa-solid fa-user"></i>
-                    Summary
+                    Discover
                 </h3>
 
+                <p>
+                    Align scope, timeline, and success criteria
+                    before writing code.
+                </p>
 
-                <div class="resume-line">
+            </article>
 
-                    <span class="resume-dot"></span>
 
-                    <div>
+            <!-- =================================
+                 STEP 2: BUILD
+            ================================== -->
 
-                        <h4>
-                            Computer Science Student
-                        </h4>
+            <article class="workflow-card">
 
-                        <p>
-                            Computer Science student interested
-                            in web development, software engineering,
-                            databases and modern technologies.
-                        </p>
-
-                    </div>
-
+                <div class="workflow-number">
+                    2
                 </div>
-
-
-                <div class="resume-line">
-
-                    <span class="resume-dot"></span>
-
-                    <div>
-
-                        <h4>
-                            Core Competencies
-                        </h4>
-
-                        <p>
-                            Programming, Web Development,
-                            Database Management, Problem Solving,
-                            Communication and Project Development.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- EXPERIENCE -->
-
-            <div class="resume-column">
 
                 <h3>
-                    <i class="fa-solid fa-code"></i>
-                    Professional Experience
+                    Build
                 </h3>
 
+                <p>
+                    Develop frontend, backend, and integrations
+                    with regular progress updates.
+                </p>
 
-                <div class="resume-line">
+            </article>
 
-                    <span class="resume-dot"></span>
 
-                    <div>
+            <!-- =================================
+                 STEP 3: LAUNCH
+            ================================== -->
 
-                        <span class="resume-date">
-                            2026 - Present
-                        </span>
+            <article class="workflow-card">
 
-                        <h4>
-                            Student Developer
-                        </h4>
-
-                        <p>
-                            Developing academic and personal projects
-                            using HTML, CSS, JavaScript, C++, Java,
-                            MySQL and other technologies.
-                        </p>
-
-                    </div>
-
+                <div class="workflow-number">
+                    3
                 </div>
 
+                <h3>
+                    Launch
+                </h3>
 
-                <div class="resume-line">
+                <p>
+                    Fix edge cases, validate quality, and deliver
+                    with clean handover.
+                </p>
 
-                    <span class="resume-dot"></span>
+            </article>
 
-                    <div>
-
-                        <h4>
-                            Academic Projects
-                        </h4>
-
-                        <p>
-                            Designing websites, programming projects,
-                            database systems and numerical analysis
-                            projects as part of academic learning.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ==============================
-         PORTFOLIO
-    =============================== -->
 
-    <section
-        id="portfolio"
-        class="content-section portfolio-section"
-    >
 
-        <div class="section-title">
 
-            <h2>
-                Portfolio
-            </h2>
 
-            <div class="title-line"></div>
+ 
+<!-- =========================================
+     FEATURED CASE STUDIES
+========================================= -->
+
+<section id="portfolio" class="content-section case-studies-section">
+
+    <div class="case-studies-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="case-studies-header">
+
+            <h2>Featured Case Studies</h2>
+
+            <p>
+                Selected projects focused on practical problem-solving,
+                clean implementation, and useful software solutions.
+            </p>
+
+            <div class="case-studies-divider"></div>
 
         </div>
 
 
-        <h3 class="portfolio-heading">
-            Some of My Previous Projects
-        </h3>
+        <!-- =================================
+             PROJECT CARDS GRID
+        ================================== -->
+
+        <div class="case-studies-grid">
 
 
-        <div class="portfolio-grid">
+            <!-- =================================
+                 PROJECT 1: ONLINE QUIZ SYSTEM
+            ================================== -->
 
+            <article class="case-study-card">
 
-            <!-- =========================
-                 PROJECT 1
-            ========================== -->
+                <!-- PROJECT IMAGE -->
 
-            <div class="portfolio-card">
-
-                <div class="portfolio-image">
+                <div class="case-study-image">
 
                     <img
                         src="images/quiz.png"
-                        alt="Online Quiz System"
+                        alt="Online Quiz System project preview"
+                        loading="lazy"
                     >
 
                 </div>
 
 
-                <div class="portfolio-info">
+                <!-- CARD BODY -->
 
-                    <h3>
-                        Online Quiz System
-                    </h3>
+                <div class="case-study-body">
 
-                    <p>
-                        HTML, CSS &amp; JavaScript
+                    <!-- META ROW -->
+
+                    <div class="case-study-meta">
+
+                        <span class="project-status production">
+                            LIVE PROJECT
+                        </span>
+
+                        <span class="project-tech-meta">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+
+                    <!-- TITLE -->
+
+                    <h3>Online Quiz System</h3>
+
+                    <p class="project-role">
+                        Project Role: Developer
                     </p>
 
 
-                    <div class="portfolio-links">
+                    <!-- PROBLEM -->
+
+                    <div class="project-description-box">
+
+                        <h4>PROBLEM</h4>
+
+                        <p>
+                            Organizing online quizzes requires a clear
+                            interface for presenting questions and
+                            allowing users to interact with assessments.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SOLUTION -->
+
+                    <div class="project-description-box">
+
+                        <h4>SOLUTION</h4>
+
+                        <p>
+                            Developed an interactive online quiz
+                            application using HTML, CSS, and JavaScript
+                            with a responsive user interface.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FEATURES -->
+
+                    <div class="project-feature-tags">
+
+                        <span>Interactive Quiz</span>
+                        <span>Responsive Design</span>
+                        <span>Question Navigation</span>
+
+                    </div>
+
+
+                    <!-- TECH STACK -->
+
+                    <div class="project-tech-tags">
+
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+
+                    <!-- ACTION BUTTONS -->
+
+                    <div class="case-study-actions">
 
                         <a
                             href="https://Jemal-dev.github.io/ONLINE-QUIZ-SYSTEM/"
+                            class="case-study-button primary"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             Live Demo
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
 
                         <a
                             href="https://github.com/Jemal-dev/ONLINE-QUIZ-SYSTEM"
+                            class="case-study-button secondary"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
+                            <i class="fa-brands fa-github"></i>
                             GitHub
                         </a>
 
@@ -798,113 +1643,131 @@
 
                 </div>
 
-            </div>
+            </article>
 
 
-            <!-- =========================
-                 PROJECT 2
-            ========================== -->
+            <!-- =================================
+                 PROJECT 2: MASJIDUL-FATWA
+            ================================== -->
 
-            <div class="portfolio-card">
+            <article class="case-study-card">
 
-                <div class="portfolio-image">
+                <!-- PROJECT IMAGE -->
 
-                    <img
-                        src="images/secant-method.png"
-                        alt="Secant Method Numerical Analysis Project"
-                    >
-
-                </div>
-
-
-                <div class="portfolio-info">
-
-                    <h3>
-                        Secant Method
-                    </h3>
-
-                    <p>
-                        Numerical Analysis &amp; MATLAB
-                    </p>
-
-
-                    <div class="portfolio-links">
-
-                        <a
-                            href="https://github.com/Jemal-dev/SECANT-METHOD"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 PROJECT 3
-            ========================== -->
-
-            <div class="portfolio-card">
-
-                <div class="portfolio-image">
+                <div class="case-study-image">
 
                     <img
                         src="images/masjidul-fatwa.png"
-                        alt="Masjidul-Fatwa Shabab Contribution Management System"
+                        alt="Masjidul-Fatwa Shabab Management System project preview"
+                        loading="lazy"
                     >
 
                 </div>
 
 
-                <div class="portfolio-info">
+                <!-- CARD BODY -->
 
-                    <h3>
-                        Masjidul-Fatwa
-                    </h3>
+                <div class="case-study-body">
 
-                    <p>
-                        A full-stack web application designed to manage
-                        Shabab contributions, member information, and
-                        community financial records through a simple
-                        and organized interface.
+                    <!-- META ROW -->
+
+                    <div class="case-study-meta">
+
+                        <span class="project-status production">
+                            LIVE PROJECT
+                        </span>
+
+                        <span class="project-tech-meta">
+                            React · Node.js
+                        </span>
+
+                    </div>
+
+
+                    <!-- TITLE -->
+
+                    <h3>Masjidul-Fatwa Shabab Management System</h3>
+
+                    <p class="project-role">
+                        Project Role: Full-Stack Developer
                     </p>
 
 
-                    <div class="portfolio-tech">
+                    <!-- PROBLEM -->
+
+                    <div class="project-description-box">
+
+                        <h4>PROBLEM</h4>
+
+                        <p>
+                            Managing community members, contributions,
+                            and financial records requires organized
+                            information and accessible management tools.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SOLUTION -->
+
+                    <div class="project-description-box">
+
+                        <h4>SOLUTION</h4>
+
+                        <p>
+                            Developed a full-stack management application
+                            using React, Node.js, Express.js, and MySQL
+                            to organize member and contribution records.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FEATURES -->
+
+                    <div class="project-feature-tags">
+
+                        <span>Member Management</span>
+                        <span>Contribution Records</span>
+                        <span>Database Integration</span>
+
+                    </div>
+
+
+                    <!-- TECH STACK -->
+
+                    <div class="project-tech-tags">
 
                         <span>React.js</span>
                         <span>Node.js</span>
                         <span>Express.js</span>
                         <span>MySQL</span>
                         <span>Axios</span>
-                        <span>Vercel</span>
 
                     </div>
 
 
-                    <div class="portfolio-links">
+                    <!-- ACTION BUTTONS -->
+
+                    <div class="case-study-actions">
 
                         <a
                             href="https://masjidul-fatwa-frontend.vercel.app"
+                            class="case-study-button primary"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <i class="fas fa-external-link-alt"></i>
                             Live Demo
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-
 
                         <a
                             href="https://github.com/Jemal-dev/masjidul-fatwa"
+                            class="case-study-button secondary"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <i class="fab fa-github"></i>
+                            <i class="fa-brands fa-github"></i>
                             GitHub
                         </a>
 
@@ -912,321 +1775,718 @@
 
                 </div>
 
-            </div>
+            </article>
+
+
+            <!-- =================================
+                 PROJECT 3: SECANT METHOD
+            ================================== -->
+
+            <article class="case-study-card">
+
+                <!-- PROJECT IMAGE -->
+
+                <div class="case-study-image">
+
+                    <img
+                        src="images/secant-method.png"
+                        alt="Secant Method Numerical Analysis project preview"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <!-- CARD BODY -->
+
+                <div class="case-study-body">
+
+                    <!-- META ROW -->
+
+                    <div class="case-study-meta">
+
+                        <span class="project-status academic">
+                            ACADEMIC PROJECT
+                        </span>
+
+                        <span class="project-tech-meta">
+                            MATLAB
+                        </span>
+
+                    </div>
+
+
+                    <!-- TITLE -->
+
+                    <h3>Secant Method</h3>
+
+                    <p class="project-role">
+                        Project Role: Student Developer
+                    </p>
+
+
+                    <!-- PROBLEM -->
+
+                    <div class="project-description-box">
+
+                        <h4>PROBLEM</h4>
+
+                        <p>
+                            Numerical analysis requires reliable methods
+                            for approximating roots of nonlinear
+                            equations.
+                        </p>
+
+                    </div>
+
+
+                    <!-- SOLUTION -->
+
+                    <div class="project-description-box">
+
+                        <h4>SOLUTION</h4>
+
+                        <p>
+                            Developed a numerical analysis project
+                            implementing the Secant Method using
+                            MATLAB.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FEATURES -->
+
+                    <div class="project-feature-tags">
+
+                        <span>Numerical Analysis</span>
+                        <span>Root Approximation</span>
+                        <span>Mathematical Computing</span>
+
+                    </div>
+
+
+                    <!-- TECH STACK -->
+
+                    <div class="project-tech-tags">
+
+                        <span>MATLAB</span>
+                        <span>Numerical Methods</span>
+
+                    </div>
+
+
+                    <!-- ACTION BUTTON -->
+
+                    <div class="case-study-actions">
+
+                        <a
+                            href="https://github.com/Jemal-dev/SECANT-METHOD"
+                            class="case-study-button primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                        <a
+                            href="https://github.com/Jemal-dev/SECANT-METHOD"
+                            class="case-study-button secondary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
 
 
         </div>
 
-    </section>
 
+        <!-- =================================
+             VIEW MORE PROJECTS
+        ================================== -->
 
-    <!-- ==============================
-         SERVICES
-    =============================== -->
+        <div class="case-studies-more">
 
-    <section
-        id="services"
-        class="content-section services-section"
-    >
+            <a
+                href="https://github.com/Jemal-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="view-more-projects"
+            >
+                View More Projects on GitHub
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
-        <div class="section-title">
+        </div>
 
-            <h2>
-                Services
+    </div>
+
+</section>
+
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+
+<section id="thanks" class="content-section contact-section">
+
+    <div class="contact-container">
+
+        <!-- CONTACT HEADER -->
+        <div class="contact-header">
+
+            <h2 id="contact-title">
+                <i class="fa-solid fa-message contact-heading-icon"></i>
+                Get in <span>Touch</span>
             </h2>
 
-            <div class="title-line"></div>
+            <p class="contact-subtitle">
+                I'd love to connect! Whether you're interested in
+                <a href="#contact-form">Collaboration</a>,
+                <a href="#contact-form">Discussing Ideas</a>,
+                or just saying hello — feel free to reach out.
+            </p>
+
+            <div class="response-badge">
+                <i class="fa-regular fa-clock"></i>
+                Average response time: within 24 hours
+            </div>
 
         </div>
 
 
-        <div class="services-grid">
+        <!-- CONTACT MAIN CONTENT -->
+        <div class="contact-layout">
 
 
-            <div class="service">
+            <!-- =================================
+                 LEFT: CONTACT FORM
+            ================================== -->
 
-                <div class="service-icon">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
+            <div class="contact-form-card">
 
-                <div>
-
-                    <h3>
-                        Web Development
-                    </h3>
-
-                    <p>
-                        Creating responsive and functional
-                        websites using modern web technologies.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-
-                <div>
-
-                    <h3>
-                        Front-End Development
-                    </h3>
-
-                    <p>
-                        Building clean and user-friendly
-                        web interfaces.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-database"></i>
-                </div>
-
-                <div>
-
-                    <h3>
-                        Database Development
-                    </h3>
-
-                    <p>
-                        Designing and working with SQL
-                        and MySQL databases.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-mobile-screen"></i>
-                </div>
-
-                <div>
-
-                    <h3>
-                        Responsive Design
-                    </h3>
-
-                    <p>
-                        Creating websites that work across
-                        desktop, tablet and mobile devices.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-
-                <div>
-
-                    <h3>
-                        Academic Projects
-                    </h3>
-
-                    <p>
-                        Developing and documenting
-                        Computer Science projects.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="service">
-
-                <div class="service-icon">
-                    <i class="fa-brands fa-github"></i>
-                </div>
-
-                <div>
-
-                    <h3>
-                        GitHub Projects
-                    </h3>
-
-                    <p>
-                        Managing and publishing source code
-                        using Git and GitHub.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         SPECIAL THANKS
-    =============================== -->
-
-    <section
-        id="thanks"
-        class="content-section thanks-section"
-    >
-
-        <div class="section-title">
-
-            <h2>
-                Special Thanks To
-            </h2>
-
-            <div class="title-line"></div>
-
-        </div>
-
-
-        <div class="thanks-container">
-
-
-            <!-- CONTACT -->
-
-            <div class="contact-box">
-
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <div>
-
-                        <strong>
-                            Location
-                        </strong>
-
-                        <p>
-                            Ethiopia
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    <div>
-
-                        <strong>
-                            Email
-                        </strong>
-
-                        <p>
-                            jemal2415@gmail.com
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                    <div>
-
-                        <strong>
-                            Contact
-                        </strong>
-
-                        <p>
-                            Available by email
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- THANK YOU -->
-
-            <div class="thank-you-box">
-
-                <h3>
-                    I want to say Thank You to my teachers.
+                <h3 class="contact-form-title">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Send a Message
                 </h3>
 
-                <p>
-                    I sincerely appreciate my teachers,
-                    instructors, classmates, family and
-                    everyone who has supported my academic
-                    and personal development.
-                </p>
+
+                <form
+                    id="contact-form"
+                    action="mailto:jemal2415@gmail.com"
+                    method="post"
+                    enctype="text/plain"
+                >
 
 
-                <ul>
+                    <!-- BOX 1: CONTACT DETAILS -->
 
-                    <li>
-                        My Teachers
-                    </li>
+                    <div class="contact-form-box">
 
-                    <li>
-                        My University Instructors
-                    </li>
+                        <h4 class="form-box-title">
+                            CONTACT DETAILS
+                        </h4>
 
-                    <li>
-                        My Classmates
-                    </li>
+                        <div class="contact-field-grid">
 
-                    <li>
-                        My Family
-                    </li>
+                            <div class="form-group">
 
-                    <li>
-                        Everyone who supports my journey
-                    </li>
+                                <label for="contact-name">
+                                    Your Name
+                                </label>
 
-                </ul>
+                                <input
+                                    type="text"
+                                    id="contact-name"
+                                    name="Name"
+                                    placeholder="Your Name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="contact-email">
+                                    Your Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="contact-email"
+                                    name="Email"
+                                    placeholder="Your Email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label for="contact-message">
+                                    Your Message
+                                </label>
+
+                                <textarea
+                                    id="contact-message"
+                                    name="Message"
+                                    rows="4"
+                                    placeholder="Tell me about your project or idea..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BOX 2: PROJECT SCOPE -->
+
+                    <div class="contact-form-box">
+
+                        <h4 class="form-box-title">
+                            PROJECT SCOPE
+                        </h4>
+
+                        <div class="contact-field-grid">
+
+                            <div class="form-group">
+
+                                <label for="project-type">
+                                    Project Type
+                                </label>
+
+                                <select
+                                    id="project-type"
+                                    name="Project Type"
+                                    required
+                                >
+
+                                    <option value="" disabled selected>
+                                        Select project type
+                                    </option>
+
+                                    <option value="Web App">
+                                        Business Website
+                                    </option>
+
+                                    <option value="Backend">
+                                        Backend API Development
+                                    </option>
+
+                                    <option value="API">
+                                        API Integration
+                                    </option>
+
+                                    <option value="Automation">
+                                        Dashboard or Admin Panel
+                                    </option>
+
+                                    <option value="Bot">
+                                        Telegram Automation Bot
+                                    </option>
+
+                                    <option value="Bug">
+                                        Bug Fixing or Maintenance
+                                    </option>
+                                    <option value="Other">
+                                        Other
+                                    </option>
+                                    
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="project-budget">
+                                    Project Budget
+                                </label>
+
+                                <select
+                                    id="project-budget"
+                                    name="Project Budget"
+                                >
+
+                                    <option value="" selected>
+                                        Select your budget
+                                    </option>
+
+                                    <option value="Not decided">
+                                        Not decided yet
+                                    </option>
+
+                                    <option value="Small project">
+                                        Small project
+                                    </option>
+
+                                    <option value="Medium project">
+                                        Medium project
+                                    </option>
+
+                                    <option value="Large project">
+                                        Large project
+                                    </option>
+
+                                    <option value="Discuss">
+                                        Let's discuss
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BOX 3: COMMUNICATION PREFERENCES -->
+
+                    <div class="contact-form-box">
+
+                        <h4 class="form-box-title">
+                            COMMUNICATION PREFERENCES
+                        </h4>
+
+                        <div class="communication-options">
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="Preferred Contact"
+                                    value="Email"
+                                    checked
+                                >
+
+                                <span>Email</span>
+
+                            </label>
+
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="Preferred Contact"
+                                    value="Telegram"
+                                >
+
+                                <span>Telegram</span>
+
+                            </label>
+
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="Preferred Contact"
+                                    value="Phone"
+                                >
+
+                                <span>Phone</span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button type="submit" class="contact-submit-button">
+
+                        Send Message
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
 
             </div>
 
+
+
+            <!-- =================================
+                 RIGHT: SOCIAL LINKS
+            ================================== -->
+
+            <div class="contact-social-card">
+
+                <div class="social-content">
+
+                    <div class="social-heading-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+
+                    <h3>Let's Connect</h3>
+
+                    <p>
+                        You can also reach me through my social
+                        platforms or direct contact below.
+                    </p>
+
+
+                    <!-- SOCIAL ICONS -->
+
+                    <div class="contact-social-links">
+
+
+                        <!-- TELEGRAM -->
+
+                        <a
+                            href="https://t.me/jemalseid1954"
+                            class="social-icon telegram-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contact me on Telegram"
+                            title="Telegram"
+                        >
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            href="https://wa.me/251926147552"
+                            class="social-icon whatsapp-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Contact me on WhatsApp"
+                            title="WhatsApp"
+                        >
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+
+                        <!-- LINKEDIN -->
+
+                        <a
+                            href="https://www.linkedin.com/in/jemal-seid-255450399/"
+                            class="social-icon linkedin-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visit my LinkedIn profile"
+                            title="LinkedIn"
+                        >
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+
+                        <!-- GITHUB -->
+
+                        <a
+                            href="https://github.com/Jemal-dev"
+                            class="social-icon github-icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visit my GitHub profile"
+                            title="GitHub"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+
+                    </div>
+
+
+                    <!-- DIRECT CONTACT DETAILS -->
+
+                    <div class="direct-contact-details">
+
+                        <a href="mailto:jemal2415@gmail.com">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <span>jemal2415@gmail.com</span>
+
+                        </a>
+
+
+                        <a href="tel:+251926147552">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            <span>+251 926 147 552</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="social-availability">
+
+                        <span class="availability-dot"></span>
+
+                        Available for collaboration
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 </main>
 
+<!-- =========================================
+     JEMAL SEID - MODERN WEBSITE FOOTER
+========================================= -->
 
-<!-- ==============================
-     FOOTER
-=============================== -->
+<footer class="site-footer">
 
-<footer class="footer">
+    <!-- LEFT: COPYRIGHT -->
+    <div class="footer-left">
 
-    <p>
-        © 2026 Jemal Seid. All Rights Reserved.
-    </p>
+        <p>
+            © 2026
+            <strong>Jemal Seid</strong>
+            — All Rights Reserved.
+        </p>
+
+    </div>
+
+
+    <!-- CENTER: SOCIAL MEDIA -->
+    <div class="footer-center">
+
+        <p class="footer-social-title">
+            Follow me on social media
+        </p>
+
+        <div class="footer-social-links">
+
+            <!-- Phone -->
+            <a
+                href="tel:+251926147552"
+                class="footer-social phone"
+                aria-label="Phone"
+                title="Call me"
+            >
+                <i class="fa-solid fa-phone"></i>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+                href="https://wa.me/251926147552"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social whatsapp"
+                aria-label="WhatsApp"
+                title="WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <!-- Telegram -->
+            <a
+                href="https://t.me/jemalseid1954"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social telegram"
+                aria-label="Telegram"
+                title="Telegram"
+            >
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <!-- Email -->
+            <a
+                href="mailto:jemal2415@gmail.com"
+                class="footer-social email"
+                aria-label="Email"
+                title="Email"
+            >
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <!-- GitHub -->
+            <a
+                href="https://github.com/Jemal-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social github"
+                aria-label="GitHub"
+                title="GitHub"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+                href="https://www.linkedin.com/in/jemal-seid-255450399/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social linkedin"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT: FLOATING BUTTONS -->
+    <div class="footer-right">
+
+        <div class="footer-actions">
+
+            <!-- Back to Top -->
+            <a
+                href="#home"
+                class="back-to-top"
+                aria-label="Back to top"
+                title="Back to top"
+            >
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+
+            <!-- Let's Work Together -->
+            <a
+                href="#thanks"
+                class="work-together"
+            >
+                Let's Work Together
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
 
 </footer>
 

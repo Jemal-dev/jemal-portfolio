@@ -12,11 +12,11 @@ const typingElement =
     document.getElementById("typing");
 
 const typingWords = [
-    "Web Developer",
-    "Programmer",
-    "Computer Science Student",
-    "Software Developer",
-    "Problem Solver"
+    "Frontend and Backend Web Developer",
+    "Telegram Bot Developer",
+    "Reliable MVP Delivery Partner",
+    "Problem Solver and Technology Enthusiast",
+    "programmer and software developer"
 ];
 
 let wordIndex = 0;
@@ -277,6 +277,49 @@ navLinks.forEach(
 );
 
 
+/* =====================================================
+   ABOUT IMAGE ON NAVIGATION CLICK
+===================================================== */
+
+const aboutSection =
+    document.getElementById("about");
+
+const aboutNavLink =
+    document.querySelector(
+        '.navigation .nav-link[href="#about"]'
+    );
+
+
+if (aboutSection && aboutNavLink) {
+
+    navLinks.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    if (link === aboutNavLink) {
+
+                        // Show image when About is clicked
+                        aboutSection.classList.add(
+                            "show-about-photo"
+                        );
+
+                    } else {
+
+                        // Hide image when another section is clicked
+                        aboutSection.classList.remove(
+                            "show-about-photo"
+                        );
+                    }
+                }
+            );
+        }
+    );
+}
+
+
 
 /* =====================================================
    CLOSE MENU WHEN CLICKING OUTSIDE
@@ -425,128 +468,259 @@ if (
     );
 }
 
+/* =====================================================
+   PORTFOLIO SECTION NAVIGATION
+===================================================== */
+
+const allSections = document.querySelectorAll(
+    ".main-content section[id]"
+);
+
+const mainContent = document.querySelector(".main-content");
+
+const navLogo = document.querySelector(".nav-logo");
 
 
 /* =====================================================
-   ACTIVE NAVIGATION
+   SHOW ALL OR SELECTED SECTION
 ===================================================== */
 
-const allSections =
-    document.querySelectorAll(
-        "section[id]"
-    );
+function showSection(sectionId, updateAddress = true) {
 
+    const selectedSection =
+        document.getElementById(sectionId);
 
-function updateActiveNavigation() {
-
-    if (!allSections.length) {
+    // Make sure the selected section belongs to main content
+    if (
+        !mainContent ||
+        !selectedSection ||
+        !mainContent.contains(selectedSection) ||
+        !selectedSection.matches("section[id]")
+    ) {
+        console.error("Portfolio section not found:", sectionId);
         return;
     }
 
-
-    let currentSection = "";
-
-
-    const scrollPosition =
-        window.scrollY + 220;
+    const isHome = sectionId === "home";
 
 
-    allSections.forEach(
-        function (section) {
+    // Home displays everything.
+    // Other navigation links display one section.
 
-            const sectionTop =
-                section.offsetTop;
-
-            const sectionBottom =
-                sectionTop +
-                section.offsetHeight;
-
-
-            if (
-                scrollPosition >= sectionTop &&
-                scrollPosition < sectionBottom
-            ) {
-
-                currentSection =
-                    section.getAttribute(
-                        "id"
-                    );
-            }
-        }
+    mainContent.classList.toggle(
+        "show-all-sections",
+        isHome
     );
 
 
-    /*
-       If the user is at the very top,
-       keep Home active.
-    */
+    allSections.forEach(function (section) {
 
-    if (
-        window.scrollY < 100 &&
-        document.getElementById("home")
-    ) {
+        section.classList.toggle(
+            "active-section",
+            !isHome && section === selectedSection
+        );
 
-        currentSection = "home";
+        // Ensure selected sections can display their reveal animation
+        if (isHome || section === selectedSection) {
+            section.classList.add("show");
+        }
+
+    });
+
+
+    // Update active navigation link
+
+    navLinks.forEach(function (link) {
+
+        const href = link.getAttribute("href");
+
+        link.classList.toggle(
+            "active",
+            href === "#" + sectionId
+        );
+
+    });
+
+
+    // About profile image
+
+    if (aboutSection) {
+
+        aboutSection.classList.toggle(
+            "show-about-photo",
+            sectionId === "about"
+        );
+
     }
 
 
-    navLinks.forEach(
-        function (link) {
+    // Update browser URL
 
-            link.classList.remove(
-                "active"
-            );
+    if (
+        updateAddress &&
+        window.location.hash !== "#" + sectionId
+    ) {
+
+        history.pushState(
+            { sectionId: sectionId },
+            "",
+            "#" + sectionId
+        );
+
+    }
 
 
-            const href =
-                link.getAttribute(
-                    "href"
-                );
+    // Return to the top
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-            if (
-                href ===
-                "#" + currentSection
-            ) {
-
-                link.classList.add(
-                    "active"
-                );
-            }
-        }
-    );
 }
 
 
-
 /* =====================================================
-   SCROLL EVENTS
+   NAVIGATION CLICK EVENTS
 ===================================================== */
 
-window.addEventListener(
-    "scroll",
-    updateActiveNavigation,
-    {
-        passive: true
-    }
-);
+navLinks.forEach(function (link) {
 
+    link.addEventListener("click", function (event) {
+
+        const href = link.getAttribute("href");
+
+        if (!href || !href.startsWith("#")) {
+            return;
+        }
+
+        const sectionId = href.substring(1);
+
+        const targetSection =
+            document.getElementById(sectionId);
+
+        if (
+            !targetSection ||
+            !mainContent.contains(targetSection)
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        showSection(sectionId);
+
+        closeMobileMenu();
+
+    });
+
+});
 
 
 /* =====================================================
-   INITIALIZE ACTIVE NAVIGATION
+   WORKFLOW BUTTON - OPEN CONTACT SECTION
 ===================================================== */
 
-window.addEventListener(
-    "load",
-    function () {
+document.querySelectorAll(".workflow-floating-cta").forEach(function (button) {
 
-        updateActiveNavigation();
+    button.addEventListener("click", function (event) {
 
-        updateMenuIcon();
+        event.preventDefault();
+
+        showSection("thanks");
+
+    });
+
+});
+
+
+/* =====================================================
+   LOGO - SHOW COMPLETE PORTFOLIO
+===================================================== */
+
+if (navLogo) {
+
+    navLogo.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        showSection("home");
+
+    });
+
+}
+
+
+/* =====================================================
+   BROWSER BACK AND FORWARD
+===================================================== */
+
+window.addEventListener("popstate", function () {
+
+    const sectionId =
+        window.location.hash.substring(1) || "home";
+
+    const targetSection =
+        document.getElementById(sectionId);
+
+    if (
+        targetSection &&
+        mainContent.contains(targetSection)
+    ) {
+
+        showSection(sectionId, false);
+
+    } else {
+
+        showSection("home", false);
+
     }
-);
 
+});
+
+
+/* =====================================================
+   INITIALIZE PORTFOLIO
+===================================================== */
+
+function initializePortfolio() {
+
+    const initialSection =
+        window.location.hash.substring(1) || "home";
+
+    const targetSection =
+        document.getElementById(initialSection);
+
+    if (
+        targetSection &&
+        mainContent.contains(targetSection)
+    ) {
+
+        showSection(initialSection, false);
+
+    } else {
+
+        showSection("home", false);
+
+    }
+
+    updateMenuIcon();
+
+}
+
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializePortfolio
+    );
+
+} else {
+
+    initializePortfolio();
+
+}
 
 
 /* =====================================================

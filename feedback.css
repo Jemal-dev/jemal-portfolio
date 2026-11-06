@@ -1,0 +1,479 @@
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   CLIENT FEEDBACK SECTION
+===================================================== */
+
+
+/* =====================================================
+   1. GENERAL SECTION
+===================================================== */
+
+.feedback-section {
+
+    --feedback-bg: #0a0f1a;
+    --feedback-card: #0d1526;
+
+    --feedback-border: #1e293b;
+
+    --feedback-cyan: #00b9ed;
+    --feedback-blue: #3b82f6;
+
+    --feedback-white: #f8fafc;
+    --feedback-gray: #cbd5e1;
+    --feedback-muted: #94a3b8;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 70px 25px 100px;
+
+    background: var(--feedback-bg);
+    color: var(--feedback-white);
+
+    box-sizing: border-box;
+
+}
+
+.feedback-section *,
+.feedback-section *::before,
+.feedback-section *::after {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   2. MAIN CONTAINER
+===================================================== */
+
+.feedback-container {
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   3. PAGE HEADER
+===================================================== */
+
+.feedback-header {
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+
+}
+
+
+.feedback-header h2 {
+
+    margin: 0 0 16px;
+
+    color: var(--feedback-white);
+
+    font-size: clamp(35px, 5vw, 45px);
+
+    font-weight: 750;
+
+    letter-spacing: -1.5px;
+
+    line-height: 1.2;
+
+}
+
+
+.feedback-header > p {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: var(--feedback-muted);
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   4. FILTER TAGS
+===================================================== */
+
+.feedback-tags {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 24px;
+
+}
+
+
+.feedback-tag {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 15px;
+
+    background: rgba(0, 185, 237, 0.07);
+
+    border: 1px solid rgba(0, 185, 237, 0.30);
+
+    border-radius: 30px;
+
+    color: #dbeafe;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+/* ACTIVE MIDDLE TAG */
+
+.feedback-tag.active {
+
+    color: #ffffff;
+
+    background: rgba(0, 185, 237, 0.12);
+
+    border-color: rgba(0, 185, 237, 0.45);
+
+}
+
+
+.feedback-tag.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -25px;
+
+    transform: translateX(-50%);
+
+    width: 118px;
+    height: 5px;
+
+    background: var(--feedback-cyan);
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 12px rgba(0, 185, 237, 0.25);
+
+}
+
+
+/* =====================================================
+   5. HEADER DIVIDER
+===================================================== */
+
+.feedback-title-line {
+
+    width: 118px;
+    height: 5px;
+
+    margin: 45px auto 0;
+
+    background: var(--feedback-cyan);
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 14px rgba(0, 185, 237, 0.20);
+
+}
+
+
+/* =====================================================
+   6. THREE-COLUMN FEEDBACK GRID
+===================================================== */
+
+.feedback-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   7. FEEDBACK CARD
+===================================================== */
+
+.feedback-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    min-width: 0;
+    min-height: 330px;
+
+    padding: 27px;
+
+    background: var(--feedback-card);
+
+    border: 1px solid var(--feedback-blue);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 15px rgba(59, 130, 246, 0.10),
+        0 12px 30px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.feedback-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--feedback-cyan);
+
+    box-shadow:
+        0 0 20px rgba(0, 185, 237, 0.15),
+        0 15px 35px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* =====================================================
+   8. QUOTE ICON
+===================================================== */
+
+.feedback-quote-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 20px;
+
+    background: rgba(0, 185, 237, 0.10);
+
+    border: 1px solid rgba(0, 185, 237, 0.20);
+
+    border-radius: 10px;
+
+    color: var(--feedback-cyan);
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================================
+   9. QUOTE TEXT
+===================================================== */
+
+.feedback-quote {
+
+    flex-grow: 1;
+
+    margin: 0;
+
+    color: var(--feedback-gray);
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   10. CARD DIVIDER
+===================================================== */
+
+.feedback-divider {
+
+    width: 100%;
+    height: 1px;
+
+    margin: 25px 0 20px;
+
+    background: var(--feedback-border);
+
+}
+
+
+/* =====================================================
+   11. AUTHOR INFORMATION
+===================================================== */
+
+.feedback-author {
+
+    width: 100%;
+
+}
+
+
+.feedback-author h3 {
+
+    margin: 0 0 7px;
+
+    color: var(--feedback-cyan);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+
+}
+
+
+.feedback-author span {
+
+    display: block;
+
+    color: var(--feedback-muted);
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+}
+
+
+/* =====================================================
+   12. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .feedback-container {
+
+        max-width: 800px;
+
+    }
+
+    .feedback-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+
+    }
+
+}
+
+
+/* =====================================================
+   13. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .feedback-section {
+
+        padding: 55px 18px 75px;
+
+    }
+
+    .feedback-header {
+
+        margin-bottom: 45px;
+
+    }
+
+    .feedback-header h2 {
+
+        font-size: 34px;
+
+    }
+
+    .feedback-header > p {
+
+        font-size: 14px;
+
+    }
+
+    .feedback-tags {
+
+        gap: 9px;
+
+    }
+
+    .feedback-tag {
+
+        padding: 7px 11px;
+
+        font-size: 11px;
+
+    }
+
+    .feedback-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+    .feedback-card {
+
+        min-height: 280px;
+
+        padding: 24px;
+
+    }
+
+}
+
+
+/* =====================================================
+   14. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .feedback-card {
+
+        transition: none;
+
+    }
+
+}

@@ -1,0 +1,443 @@
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   MODERN FOOTER DESIGN
+===================================================== */
+
+
+/* =====================================================
+   GENERAL FOOTER
+===================================================== */
+
+.site-footer {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 35px;
+
+    width: 100%;
+    min-height: 170px;
+
+    padding: 35px 5%;
+
+    background: #0a0f1a;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.15);
+
+    color: #94a3b8;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =====================================================
+   LEFT SECTION - COPYRIGHT
+===================================================== */
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-left p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.8;
+}
+
+.footer-left strong {
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   CENTER SECTION - SOCIAL MEDIA
+===================================================== */
+
+.footer-center {
+    flex: 1.5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* SOCIAL MEDIA TITLE */
+
+.footer-social-title {
+    margin: 0 0 17px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* SOCIAL ICON CONTAINER */
+
+.footer-social-links {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* INDIVIDUAL SOCIAL ICON */
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #111827;
+
+    border: 1px solid rgba(148, 163, 184, 0.18);
+
+    font-size: 17px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* BRAND COLORS */
+
+.footer-social.phone {
+    color: #34d399;
+}
+
+.footer-social.whatsapp {
+    color: #25d366;
+}
+
+.footer-social.telegram {
+    color: #229ed9;
+}
+
+.footer-social.email {
+    color: #ea4335;
+}
+
+.footer-social.github {
+    color: #f8fafc;
+}
+
+.footer-social.linkedin {
+    color: #0a66c2;
+}
+
+
+/* SOCIAL HOVER EFFECT */
+
+.footer-social:hover {
+    transform: translateY(-5px);
+
+    background: #182337;
+
+    border-color: #3985ff;
+
+    box-shadow: 0 0 17px rgba(57, 133, 255, 0.18);
+}
+
+
+/* =====================================================
+   RIGHT SECTION - ACTION BUTTONS
+===================================================== */
+
+.footer-right {
+    flex: 0 0 220px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-height: 100px;
+}
+
+
+/* BUTTON GROUP */
+
+.footer-actions {
+    position: fixed;
+
+    right: 28px;
+    bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    z-index: 999;
+}
+
+
+/* =====================================================
+   BACK TO TOP BUTTON
+===================================================== */
+
+.back-to-top {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    margin-right: 12px;
+    margin-bottom: -7px;
+
+    border-radius: 50%;
+
+    background: #101827;
+
+    color: #60a5fa;
+
+    border: 1px solid #3985ff;
+
+    font-size: 15px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 0 10px rgba(57, 133, 255, 0.18);
+
+    position: relative;
+    z-index: 2;
+
+    transition: all 0.3s ease;
+}
+
+
+.back-to-top:hover {
+    color: #ffffff;
+
+    background: #3985ff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 18px rgba(57, 133, 255, 0.4);
+}
+
+
+/* =====================================================
+   LET'S WORK TOGETHER BUTTON
+===================================================== */
+
+.work-together {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 23px;
+
+    border-radius: 40px;
+
+    background: #101827;
+
+    color: #ffffff;
+
+    border: 1px solid #22d3ee;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.35),
+        0 0 20px rgba(34, 211, 238, 0.15),
+        inset 0 0 8px rgba(34, 211, 238, 0.08);
+
+    transition: all 0.3s ease;
+}
+
+
+.work-together i {
+    font-size: 13px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.work-together:hover {
+    background: #123144;
+
+    border-color: #67e8f9;
+
+    box-shadow:
+        0 0 12px rgba(34, 211, 238, 0.6),
+        0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+
+.work-together:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .site-footer {
+        gap: 20px;
+
+        padding: 30px 4%;
+    }
+
+    .footer-center {
+        flex: 1.4;
+    }
+
+    .footer-right {
+        flex-basis: 180px;
+    }
+
+    .footer-social-links {
+        gap: 9px;
+    }
+
+    .footer-social {
+        width: 38px;
+        height: 38px;
+
+        font-size: 15px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .site-footer {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 25px;
+
+        padding: 35px 20px;
+
+        text-align: center;
+    }
+
+
+    .footer-left {
+        flex: none;
+    }
+
+
+    .footer-center {
+        flex: none;
+
+        width: 100%;
+    }
+
+
+    .footer-right {
+        flex: none;
+
+        min-height: auto;
+    }
+
+
+    .footer-social-links {
+        gap: 11px;
+    }
+
+
+    .footer-social {
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
+
+    .footer-actions {
+        right: 15px;
+        bottom: 15px;
+    }
+
+
+    .back-to-top {
+        width: 39px;
+        height: 39px;
+    }
+
+
+    .work-together {
+        padding: 12px 17px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE SCREENS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .footer-left p {
+        font-size: 11px;
+    }
+
+    .footer-social-links {
+        gap: 8px;
+    }
+
+    .footer-social {
+        width: 36px;
+        height: 36px;
+
+        font-size: 14px;
+    }
+
+}

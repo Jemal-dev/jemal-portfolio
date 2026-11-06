@@ -1,0 +1,732 @@
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   FEATURED CASE STUDIES
+===================================================== */
+
+
+/* =====================================================
+   1. GENERAL SECTION
+===================================================== */
+
+.case-studies-section {
+
+    --case-bg: #0a0f1a;
+    --case-card: #0d1526;
+    --case-inner: #0a0f1a;
+
+    --case-border: #1e293b;
+    --case-blue: #3b82f6;
+    --case-cyan: #22d3ee;
+
+    --case-white: #f8fafc;
+    --case-gray: #cbd5e1;
+    --case-muted: #94a3b8;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 75px 25px 100px;
+
+    background: var(--case-bg);
+    color: var(--case-white);
+
+    box-sizing: border-box;
+
+}
+
+.case-studies-section *,
+.case-studies-section *::before,
+.case-studies-section *::after {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   2. MAIN CONTAINER
+===================================================== */
+
+.case-studies-container {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   3. PAGE HEADER
+===================================================== */
+
+.case-studies-header {
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+.case-studies-header h2 {
+
+    margin: 0 0 14px;
+
+    color: var(--case-white);
+
+    font-size: clamp(32px, 4vw, 42px);
+
+    font-weight: 750;
+
+    line-height: 1.2;
+
+    letter-spacing: -1.2px;
+
+}
+
+
+.case-studies-header > p {
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    color: var(--case-muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* BLUE DIVIDER */
+
+.case-studies-divider {
+
+    width: 115px;
+    height: 5px;
+
+    margin: 22px auto 0;
+
+    background: var(--case-blue);
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 13px rgba(59, 130, 246, 0.25);
+
+}
+
+
+/* =====================================================
+   4. THREE COLUMN GRID
+===================================================== */
+
+.case-studies-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    width: 100%;
+
+}
+
+
+/* =====================================================
+   5. PROJECT CARDS
+===================================================== */
+
+.case-study-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: var(--case-card);
+
+    border: 1px solid var(--case-border);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.case-study-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: rgba(59, 130, 246, 0.55);
+
+    box-shadow:
+        0 0 17px rgba(59, 130, 246, 0.12),
+        0 12px 30px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* =====================================================
+   6. PROJECT IMAGE
+===================================================== */
+
+.case-study-image {
+
+    width: 100%;
+    height: 200px;
+
+    overflow: hidden;
+
+    background: #17243a;
+
+}
+
+
+.case-study-image img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition: transform 0.4s ease;
+
+}
+
+
+.case-study-card:hover .case-study-image img {
+
+    transform: scale(1.045);
+
+}
+
+
+/* =====================================================
+   7. CARD BODY
+===================================================== */
+
+.case-study-body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 22px;
+
+}
+
+
+/* =====================================================
+   8. PROJECT META ROW
+===================================================== */
+
+.case-study-meta {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.project-status {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.7px;
+
+}
+
+
+.project-status.production {
+
+    background: rgba(34, 197, 94, 0.12);
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+
+    color: #86efac;
+
+}
+
+
+.project-status.academic {
+
+    background: rgba(59, 130, 246, 0.12);
+
+    border: 1px solid rgba(59, 130, 246, 0.25);
+
+    color: #93c5fd;
+
+}
+
+
+.project-tech-meta {
+
+    color: var(--case-muted);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+}
+
+
+/* =====================================================
+   9. PROJECT TITLE
+===================================================== */
+
+.case-study-body > h3 {
+
+    margin: 0 0 9px;
+
+    color: var(--case-blue);
+
+    font-size: 19px;
+
+    font-weight: 750;
+
+    line-height: 1.45;
+
+}
+
+
+/* ROLE */
+
+.project-role {
+
+    margin: 0 0 18px;
+
+    color: var(--case-muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   10. PROBLEM AND SOLUTION BOXES
+===================================================== */
+
+.project-description-box {
+
+    padding: 15px;
+
+    margin-bottom: 13px;
+
+    background: var(--case-inner);
+
+    border: 1px solid rgba(30, 41, 59, 0.8);
+
+    border-radius: 8px;
+
+}
+
+
+.project-description-box h4 {
+
+    margin: 0 0 8px;
+
+    color: var(--case-blue);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+.project-description-box p {
+
+    margin: 0;
+
+    color: var(--case-gray);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+
+}
+
+
+/* =====================================================
+   11. FEATURE TAGS
+===================================================== */
+
+.project-feature-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin: 5px 0 15px;
+
+}
+
+
+.project-feature-tags span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 9px;
+
+    background: #131e30;
+
+    border: 1px solid var(--case-border);
+
+    border-radius: 20px;
+
+    color: var(--case-muted);
+
+    font-size: 9px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =====================================================
+   12. TECHNOLOGY TAGS
+===================================================== */
+
+.project-tech-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 19px;
+
+}
+
+
+.project-tech-tags span {
+
+    padding: 6px 9px;
+
+    background: rgba(59, 130, 246, 0.10);
+
+    border: 1px solid rgba(59, 130, 246, 0.2);
+
+    border-radius: 5px;
+
+    color: #bfdbfe;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+}
+
+
+/* =====================================================
+   13. ACTION BUTTONS
+===================================================== */
+
+.case-study-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: auto;
+
+    padding-top: 5px;
+
+}
+
+
+.case-study-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 38px;
+
+    padding: 9px 13px;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 650;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.case-study-button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.case-study-button.primary {
+
+    background: var(--case-blue);
+
+    border-color: var(--case-blue);
+
+    color: #ffffff;
+
+}
+
+
+.case-study-button.primary:hover {
+
+    background: #2563eb;
+
+}
+
+
+.case-study-button.secondary {
+
+    background: transparent;
+
+    border-color: #475569;
+
+    color: var(--case-white);
+
+}
+
+
+.case-study-button.secondary:hover {
+
+    background: #17243a;
+
+    border-color: #94a3b8;
+
+}
+
+
+/* =====================================================
+   14. VIEW MORE PROJECTS BUTTON
+===================================================== */
+
+.case-studies-more {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 45px;
+
+}
+
+
+.view-more-projects {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 48px;
+
+    padding: 13px 25px;
+
+    background: var(--case-blue);
+
+    border: 1px solid var(--case-blue);
+
+    border-radius: 30px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.view-more-projects:hover {
+
+    background: #2563eb;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 20px rgba(59, 130, 246, 0.2);
+
+}
+
+
+/* =====================================================
+   15. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .case-studies-container {
+
+        max-width: 800px;
+
+    }
+
+    .case-studies-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+
+    }
+
+}
+
+
+/* =====================================================
+   16. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .case-studies-section {
+
+        padding: 55px 17px 80px;
+
+    }
+
+    .case-studies-header {
+
+        margin-bottom: 35px;
+
+    }
+
+    .case-studies-header h2 {
+
+        font-size: 32px;
+
+    }
+
+    .case-studies-header > p {
+
+        font-size: 13px;
+
+    }
+
+    .case-studies-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+    }
+
+    .case-study-image {
+
+        height: 190px;
+
+    }
+
+    .case-study-body {
+
+        padding: 20px;
+
+    }
+
+    .case-study-body > h3 {
+
+        font-size: 18px;
+
+    }
+
+    .case-studies-more {
+
+        margin-top: 32px;
+
+    }
+
+}
+
+
+/* =====================================================
+   17. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .case-study-card,
+    .case-study-image img,
+    .case-study-button,
+    .view-more-projects {
+
+        transition: none;
+
+    }
+
+}

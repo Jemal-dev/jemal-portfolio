@@ -1,0 +1,339 @@
+
+/* =========================================
+   STEP 2.2: REFERENCE-INSPIRED HERO DESIGN
+========================================= */
+
+.home::before,
+.home::after {
+    display: none !important;
+    content: none !important;
+}
+
+.home {
+    min-height: calc(100vh - 82px);
+
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 65px max(7%, calc((100% - 1140px) / 2));
+
+    position: relative;
+    overflow: hidden;
+
+    background: #0b1020;
+}
+
+/* Hero text */
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+}
+
+.home-content .home-title {
+    color: #ffffff;
+
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 700;
+    line-height: 1.25;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 28px;
+}
+
+.home-content .home-title span {
+    color: #3985ff;
+}
+
+/* Developer role and typing animation */
+
+.home-role {
+    color: #22d3ee;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.home-role .typing {
+    color: #22d3ee;
+    font-size: inherit;
+    font-weight: inherit;
+    border: none;
+    min-height: auto;
+    padding: 0;
+}
+
+/* Introduction with blue side borders */
+
+.home-intro {
+    padding: 4px 18px;
+
+    border-left: 4px solid #3985ff;
+    border-right: 4px solid #3985ff;
+
+    color: #d6deeb;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    margin-bottom: 26px;
+}
+
+/* Technology tags */
+
+.home-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 34px;
+}
+
+.home-tags span {
+    padding: 7px 12px;
+
+    border: 1px solid rgba(34, 211, 238, 0.4);
+    border-radius: 30px;
+
+    background: rgba(34, 211, 238, 0.08);
+
+    color: #d8f7ff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Hero buttons */
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Download Resume on the second row */
+
+.home-actions .resume-button {
+    flex: 0 0 auto;
+    width: fit-content;
+    margin-right: 100%;
+    white-space: nowrap;
+}
+
+.home-button {
+    min-height: 49px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 22px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: all 0.25s ease;
+}
+
+.primary-button {
+    background: #3985ff;
+    border: 1px solid #3985ff;
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    background: transparent;
+    border: 1px solid #3985ff;
+    color: #3985ff;
+}
+
+.secondary-button:hover {
+    background: rgba(57, 133, 255, 0.12);
+    transform: translateY(-3px);
+}
+
+.resume-button {
+    background: transparent;
+    border: 1px solid #22d3ee;
+    color: #22d3ee;
+}
+
+.resume-button:hover {
+    background: rgba(34, 211, 238, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Circular profile picture */
+
+.home-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    width: 100%;
+    min-height: 460px;
+}
+
+.home-photo-ring {
+    width: min(100%, 440px);
+    aspect-ratio: 1 / 1;
+
+    padding: 8px;
+
+    border-radius: 75%;
+
+    background: linear-gradient(
+        135deg,
+        #3985ff,
+        #3985ff
+    );
+
+    position: relative;
+    z-index: 2;
+
+    box-shadow: 0 0 55px rgba(57, 133, 255, 0.14);
+}
+
+.home-photo-ring img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: 8px solid #3985ff;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: center 15%;
+}
+
+/* Tablet */
+
+@media (max-width: 1023px) {
+
+    .home {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding: 65px 7%;
+    }
+
+    .home-content {
+        max-width: 700px;
+    }
+
+    .home-visual {
+        min-height: 350px;
+    }
+
+    .home-photo-ring {
+        width: min(75vw, 350px);
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+
+    .home {
+        padding: 48px 22px;
+    }
+
+    .home-content .home-title {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .home-role {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .home-intro {
+        font-size: 12px;
+    }
+
+    .home-actions {
+        flex-direction: column;
+    }
+
+    .home-button {
+        width: 100%;
+    }
+
+    .home-visual {
+        min-height: 280px;
+    }
+
+    .home-photo-ring {
+        width: min(75vw, 270px);
+    }
+
+}
+
+/* =========================================
+   ANIMATED DEVELOPER TEXT
+========================================= */
+
+.home-role {
+    color: #22d3ee;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.home-role .typing,
+.home-role #typing {
+    color: #22d3ee;
+    font-size: inherit;
+    font-weight: inherit;
+}
+@media (max-width: 520px) {
+    .home-role {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   PREVENT HOME CONTENT FROM MOVING
+========================================= */
+
+.home-role {
+    height: 3em;
+    display: block;
+    overflow: visible;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .home-role {
+        height: 3.4em;
+    }
+}
+
+/* Keep profile photo stationary */
+
+.home-photo-ring {
+    animation: none !important;
+    transform: none !important;
+}
+

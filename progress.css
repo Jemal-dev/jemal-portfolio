@@ -1,0 +1,382 @@
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   CIRCULAR PROGRAM PROGRESS GAUGE
+===================================================== */
+
+
+/* =====================================================
+   1. MAIN WRAPPER
+===================================================== */
+
+.program-progress-section {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    padding: 35px 20px;
+
+    background: #0a0f1a;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   2. PROGRESS CARD
+===================================================== */
+
+.program-progress-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 360px;
+
+    padding: 40px 50px;
+
+    background: #0d1526;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 16px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   3. CARD TITLE
+===================================================== */
+
+.program-progress-title {
+
+    margin: 0 0 30px;
+
+    color: #cbd5e1;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   4. CIRCULAR GAUGE CONTAINER
+===================================================== */
+
+.progress-circle-container {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 200px;
+
+}
+
+
+/* =====================================================
+   5. SVG CIRCLE
+===================================================== */
+
+.progress-circle {
+
+    display: block;
+
+    width: 200px;
+    height: 200px;
+
+    overflow: visible;
+
+}
+
+
+/* =====================================================
+   6. BACKGROUND CIRCLE
+===================================================== */
+
+.progress-circle-track {
+
+    fill: none;
+
+    stroke: #1e293b;
+
+    stroke-width: 14;
+
+    stroke-linecap: round;
+
+}
+
+
+/* =====================================================
+   7. GREEN PROGRESS CIRCLE
+===================================================== */
+
+.progress-circle-fill {
+
+    fill: none;
+
+    stroke: #22c55e;
+
+    stroke-width: 14;
+
+    stroke-linecap: round;
+
+    /* Full circumference of a circle with radius 86 */
+    stroke-dasharray: 540.35;
+
+    /* 20% remains unfilled */
+    stroke-dashoffset: 108.07;
+
+    /* Start at 12 o'clock */
+    transform: rotate(-90deg);
+
+    transform-origin: 50% 50%;
+
+    /* Smooth loading animation */
+    animation: progressCircleAnimation 1.8s ease-out forwards;
+
+}
+
+
+/* =====================================================
+   8. CIRCULAR ANIMATION
+===================================================== */
+
+@keyframes progressCircleAnimation {
+
+    from {
+
+        stroke-dashoffset: 540.35;
+
+    }
+
+    to {
+
+        stroke-dashoffset: 108.07;
+
+    }
+
+}
+
+
+/* =====================================================
+   9. CENTER PERCENTAGE
+===================================================== */
+
+.progress-circle-value {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.progress-circle-value span {
+
+    color: #ffffff;
+
+    font-size: 2.5rem;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+/* =====================================================
+   10. BOTTOM SUBTITLE
+===================================================== */
+
+.program-progress-subtitle {
+
+    margin: 24px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 0.9rem;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   11. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .program-progress-section {
+
+        min-height: 340px;
+
+        padding: 25px 12px;
+
+    }
+
+    .program-progress-card {
+
+        padding: 35px 25px;
+
+        max-width: 330px;
+
+    }
+
+    .progress-circle-container,
+    .progress-circle {
+
+        width: 180px;
+        height: 180px;
+
+    }
+
+    .progress-circle-value span {
+
+        font-size: 2.2rem;
+
+    }
+
+}
+
+
+/* =====================================================
+   12. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .progress-circle-fill {
+
+        animation: none;
+
+    }
+
+}
+
+
+/* =====================================================
+   FORMAL EDUCATION - TWO COLUMN LAYOUT
+===================================================== */
+
+.formal-education-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(270px, 0.8fr);
+
+    align-items: stretch;
+
+    gap: 24px;
+
+    width: 100%;
+}
+
+
+/* LEFT COLUMN: UNIVERSITY CARD */
+
+.formal-education-layout .formal-education-card {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+}
+
+
+/* RIGHT COLUMN: PROGRESS WRAPPER */
+
+.formal-education-layout .program-progress-section {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+}
+
+
+/* PROGRESS CARD */
+
+.formal-education-layout .program-progress-card {
+    width: 100%;
+    max-width: 330px;
+
+    min-height: 320px;
+
+    padding: 32px 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   TABLET AND MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .formal-education-layout {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .formal-education-layout .program-progress-section {
+        height: auto;
+
+        min-height: 0;
+
+        padding: 10px 0;
+    }
+
+    .formal-education-layout .program-progress-card {
+        max-width: 360px;
+    }
+
+}

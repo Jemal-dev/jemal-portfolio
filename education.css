@@ -1,0 +1,1046 @@
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   EDUCATION PAGE
+===================================================== */
+
+
+/* =====================================================
+   1. EDUCATION PAGE BASE
+===================================================== */
+
+.education-section {
+    --edu-bg: #0a0f1a;
+    --edu-card: #0d1526;
+    --edu-card-secondary: #111a2c;
+    --edu-green: #22c55e;
+    --edu-blue: #3b82f6;
+    --edu-white: #f8fafc;
+    --edu-gray: #cbd5e1;
+    --edu-muted: #94a3b8;
+    --edu-border: #1e293b;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 65px 24px 100px;
+
+    background: var(--edu-bg);
+    color: var(--edu-white);
+
+    box-sizing: border-box;
+}
+
+.education-section *,
+.education-section *::before,
+.education-section *::after {
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   2. MAIN CONTAINER
+===================================================== */
+
+.education-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   3. FIXED NAVIGATION
+===================================================== */
+
+.nav-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    z-index: 2000;
+
+    pointer-events: none;
+}
+
+.site-header {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 78px;
+
+    padding: 0 5%;
+
+    background: #0d1526;
+
+    border-top: 1px solid #1e293b;
+    border-bottom: 1px solid #1e293b;
+
+    box-sizing: border-box;
+
+    pointer-events: auto;
+}
+
+
+/* LOGO */
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-logo span {
+    color: var(--edu-blue);
+}
+
+
+/* NAVIGATION LINKS */
+
+.site-header .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.site-header .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.site-header .nav-link:hover {
+    color: #60a5fa;
+
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.site-header .nav-link.active {
+    color: #60a5fa;
+
+    background: rgba(59, 130, 246, 0.16);
+
+    font-weight: 600;
+}
+
+
+/* KEEP CONTENT BELOW FIXED NAVBAR */
+
+.main-content {
+    padding-top: 78px;
+}
+
+
+/* =====================================================
+   4. PAGE HEADER
+===================================================== */
+
+.education-page-header {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 75px;
+}
+
+.education-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--edu-green);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.education-page-header h1 {
+    margin: 0 0 16px;
+
+    color: var(--edu-white);
+
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 750;
+
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.education-page-header h1 span {
+    color: var(--edu-green);
+}
+
+.education-page-header p {
+    margin: 0;
+
+    color: var(--edu-muted);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   5. FORMAL EDUCATION SECTION
+===================================================== */
+
+.education-block {
+    margin-bottom: 80px;
+}
+
+.education-section-heading {
+    margin-bottom: 27px;
+}
+
+.education-section-heading h2 {
+    margin: 0;
+
+    color: var(--edu-white);
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.education-section-heading h2 span {
+    color: var(--edu-blue);
+}
+
+.education-divider {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 17px;
+
+    background: linear-gradient(
+        to right,
+        rgba(59, 130, 246, 0.65),
+        rgba(30, 41, 59, 0.15)
+    );
+}
+
+.education-section-heading > p {
+    margin: 14px 0 0;
+
+    color: var(--edu-muted);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   6. FORMAL EDUCATION CARD
+===================================================== */
+
+.formal-education-card {
+    width: 62%;
+    max-width: 740px;
+
+    margin: 0;
+
+    padding: 30px;
+
+    background: var(--edu-card);
+
+    border: 3px solid var(--edu-green);
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 18px rgba(34, 197, 94, 0.08),
+        0 0 45px rgba(34, 197, 94, 0.035);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.formal-education-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 23px rgba(34, 197, 94, 0.13),
+        0 0 50px rgba(34, 197, 94, 0.05);
+}
+
+
+/* CARD HEADER */
+
+.formal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.formal-university-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 52px;
+    height: 52px;
+
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 11px;
+
+    color: var(--edu-green);
+
+    font-size: 22px;
+}
+
+.formal-status {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 12px;
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 30px;
+
+    background: rgba(34, 197, 94, 0.08);
+
+    color: #86efac;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.green-status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--edu-green);
+}
+
+
+/* UNIVERSITY DETAILS */
+
+.formal-card-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--edu-green);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.formal-card-content h3 {
+    margin: 0 0 14px;
+
+    color: var(--edu-white);
+
+    font-size: clamp(22px, 3vw, 29px);
+    font-weight: 750;
+
+    line-height: 1.35;
+}
+
+.formal-description {
+    margin: 0;
+
+    color: var(--edu-gray);
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   7. INFORMATION ROWS
+===================================================== */
+
+.formal-info-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 19px;
+
+    margin-top: 28px;
+    padding: 25px 0;
+
+    border-top: 1px solid var(--edu-border);
+    border-bottom: 1px solid var(--edu-border);
+}
+
+.formal-info-row {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.formal-info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    background: rgba(59, 130, 246, 0.10);
+
+    color: var(--edu-blue);
+
+    font-size: 15px;
+}
+
+.formal-info-row div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.formal-info-row span {
+    color: var(--edu-muted);
+
+    font-size: 11px;
+}
+
+.formal-info-row strong {
+    color: var(--edu-white);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   8. COURSEWORK
+===================================================== */
+
+.coursework-area {
+    margin-top: 26px;
+}
+
+.coursework-area h4 {
+    margin: 0 0 17px;
+
+    color: var(--edu-green);
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.coursework-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 13px 25px;
+
+    margin: 0;
+    padding-left: 20px;
+}
+
+.coursework-list li {
+    padding-left: 4px;
+
+    color: var(--edu-gray);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.coursework-list li::marker {
+    color: var(--edu-green);
+}
+
+
+/* =====================================================
+   9. CERTIFICATIONS SECTION
+===================================================== */
+
+.certifications-block {
+    margin-top: 75px;
+}
+
+.certifications-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   10. CERTIFICATION CARDS
+===================================================== */
+
+.certification-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    min-height: 285px;
+
+    padding: 25px;
+
+    background: var(--edu-card-secondary);
+
+    border: 1px solid var(--edu-border);
+    border-radius: 13px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(59, 130, 246, 0.55);
+
+    background: #142039;
+}
+
+.certification-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    margin-bottom: 22px;
+
+    border-radius: 10px;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    color: var(--edu-blue);
+
+    font-size: 19px;
+}
+
+.certification-platform {
+    margin-bottom: 10px;
+
+    color: #60a5fa;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.certification-card h3 {
+    margin: 0 0 12px;
+
+    color: var(--edu-white);
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.certification-card p {
+    margin: 0 0 22px;
+
+    color: var(--edu-muted);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.certification-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: auto;
+
+    color: #60a5fa;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+}
+
+.certification-link:hover {
+    color: #93c5fd;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   11. RESPONSIVE - TABLETS
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .formal-education-card {
+        width: 75%;
+    }
+
+    .certifications-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   12. RESPONSIVE - MOBILE NAVIGATION
+===================================================== */
+
+@media (max-width: 760px) {
+
+    .nav-overlay {
+        position: sticky;
+
+        height: auto;
+
+        pointer-events: auto;
+    }
+
+    .site-header {
+        position: relative;
+
+        height: auto;
+        min-height: 78px;
+
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 12px;
+
+        padding: 15px 4%;
+    }
+
+    .site-header .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 5px;
+    }
+
+    .site-header .nav-link {
+        padding: 8px 10px;
+
+        font-size: 12px;
+    }
+
+    .main-content {
+        padding-top: 0;
+    }
+
+}
+
+
+/* =====================================================
+   13. RESPONSIVE - SMALL SCREENS
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .education-section {
+        padding: 55px 18px 75px;
+    }
+
+    .education-page-header {
+        margin-bottom: 55px;
+    }
+
+    .education-page-header h1 {
+        font-size: 33px;
+    }
+
+    .education-section-heading h2 {
+        font-size: 22px;
+    }
+
+    .formal-education-card {
+        width: 100%;
+
+        padding: 23px 20px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certification-card {
+        min-height: auto;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .coursework-list {
+        grid-template-columns: 1fr;
+    }
+
+    .formal-card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   ONLINE LEARNING SECTION
+===================================================== */
+
+
+/* =====================================================
+   1. MAIN CONTAINER
+===================================================== */
+
+.online-learning-block {
+
+    width: 100%;
+
+    margin-top: 75px;
+
+}
+
+
+/* =====================================================
+   2. SECTION HEADER
+===================================================== */
+
+.online-learning-header {
+
+    width: 100%;
+
+    margin-bottom: 28px;
+
+}
+
+
+.online-learning-header h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.online-learning-header h2 span {
+
+    color: #3b82f6;
+
+}
+
+
+/* =====================================================
+   3. HORIZONTAL DIVIDER
+===================================================== */
+
+.online-learning-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 17px;
+
+    background: #1e293b;
+
+}
+
+
+/* =====================================================
+   4. THREE-COLUMN GRID
+===================================================== */
+
+.online-learning-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    align-items: stretch;
+
+}
+
+
+/* =====================================================
+   5. LEARNING CARD
+===================================================== */
+
+.online-learning-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    height: 100%;
+
+    min-height: 290px;
+
+    padding: 25px;
+
+    background: #0d1526;
+
+    border: 1px solid #1e293b;
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+/* CARD HOVER */
+
+.online-learning-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: rgba(59, 130, 246, 0.55);
+
+    background: #111c31;
+
+}
+
+
+/* =====================================================
+   6. PLATFORM NAME
+===================================================== */
+
+.online-learning-platform {
+
+    margin-bottom: 15px;
+
+    color: #3b82f6;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+}
+
+
+/* =====================================================
+   7. CARD TITLE
+===================================================== */
+
+.online-learning-card h3 {
+
+    margin: 0 0 14px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   8. CARD DESCRIPTION
+===================================================== */
+
+.online-learning-card p {
+
+    flex-grow: 1;
+
+    margin: 0 0 22px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   9. VIEW PROGRAM LINK
+===================================================== */
+
+.online-learning-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: auto;
+
+    color: #3b82f6;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+
+}
+
+
+.online-learning-link:hover {
+
+    color: #60a5fa;
+
+    gap: 13px;
+
+}
+
+
+.online-learning-link i {
+
+    font-size: 11px;
+
+}
+
+
+/* =====================================================
+   10. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .online-learning-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+
+    }
+
+}
+
+
+/* =====================================================
+   11. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .online-learning-block {
+
+        margin-top: 55px;
+
+    }
+
+    .online-learning-header h2 {
+
+        font-size: 22px;
+
+    }
+
+    .online-learning-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .online-learning-card {
+
+        min-height: 260px;
+
+        padding: 23px;
+
+    }
+
+}
+
+

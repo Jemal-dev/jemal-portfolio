@@ -1,0 +1,630 @@
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   MODERN TOP NAVIGATION
+===================================================== */
+
+
+/* =========================================
+   FIXED TOP POSITION - NAVBAR
+========================================= */
+
+.site-header {
+    position: sticky;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    min-height: 78px;
+
+    margin: 0;
+    padding: 0 5%;
+
+    background-color: #0a0f1a;
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LEFT SECTION - LOGO
+===================================================== */
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: opacity 0.3s ease;
+}
+
+.nav-logo span {
+    color: #3b82f6;
+}
+
+.nav-logo:hover {
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   RIGHT SECTION - NAVIGATION
+===================================================== */
+
+.site-header .navigation {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.site-header .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    border-radius: 11px;
+
+    color: #cbd5e1;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    background: transparent;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =====================================================
+   ACTIVE NAVIGATION LINK
+===================================================== */
+
+.site-header .nav-link.active {
+    color: #3b82f6;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   HOVER EFFECT
+===================================================== */
+
+.site-header .nav-link:not(.active):hover {
+    color: #60a5fa;
+
+    background: rgba(59, 130, 246, 0.08);
+
+    transform: translateY(-2px);
+}
+
+
+/* ACTIVE HOVER */
+
+.site-header .nav-link.active:hover {
+    background: rgba(59, 130, 246, 0.18);
+}
+
+
+/* =====================================================
+   KEYBOARD ACCESSIBILITY
+===================================================== */
+
+.site-header .nav-link:focus-visible,
+.nav-logo:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 4px;
+}
+
+
+/* =====================================================
+   MAIN CONTENT ADJUSTMENT
+===================================================== */
+
+.main-content {
+    width: 100%;
+    margin-left: 0 !important;
+}
+
+section[id] {
+    scroll-margin-top: 95px;
+}
+
+
+/* =====================================================
+   TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .site-header {
+        padding: 0 3%;
+    }
+
+    .site-header .navigation {
+        gap: 7px;
+    }
+
+    .site-header .nav-link {
+        padding: 9px 10px;
+        font-size: 14px;
+    }
+
+    .nav-logo {
+        font-size: 24px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 15px;
+
+        padding: 17px 12px;
+
+        min-height: auto;
+    }
+
+    .nav-logo {
+        font-size: 25px;
+    }
+
+    .site-header .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 6px;
+
+        width: 100%;
+    }
+
+    .site-header .nav-link {
+        padding: 8px 11px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE SCREENS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .site-header {
+        padding: 14px 8px;
+    }
+
+    .site-header .navigation {
+        gap: 4px;
+    }
+
+    .site-header .nav-link {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   HEADER AND HERO SPACING
+========================================= */
+
+.main-content {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
+}
+
+#home {
+    margin-top: 0;
+}
+
+.site-header + .main-content {
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   JEMAL SEID PORTFOLIO
+   HOME LAYOUT AND CENTERED NAVIGATION
+===================================================== */
+
+
+/* =====================================================
+   1. CENTERED NAVBAR OVERLAY
+===================================================== */
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    pointer-events: none;
+}
+
+.site-header {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    transform: translateY(-50%);
+
+    z-index: 2001;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    min-height: 78px;
+
+    padding: 0 5%;
+
+    box-sizing: border-box;
+
+    background: rgba(10, 15, 26, 0.88);
+
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   2. LOGO
+===================================================== */
+
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-logo span {
+    color: #3b82f6;
+}
+
+
+/* =====================================================
+   3. NAVIGATION LINKS
+===================================================== */
+
+.site-header .navigation {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.site-header .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    border-radius: 11px;
+
+    color: #cbd5e1;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.site-header .nav-link.active {
+    color: #3b82f6;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    font-weight: 600;
+}
+
+.site-header .nav-link:not(.active):hover {
+    color: #60a5fa;
+
+    background: rgba(59, 130, 246, 0.08);
+}
+
+
+/* =====================================================
+   4. HOME - DESKTOP FLEXBOX LAYOUT
+===================================================== */
+
+#home {
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: nowrap;
+
+    gap: clamp(30px, 5vw, 75px);
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 60px 7%;
+
+    box-sizing: border-box;
+}
+
+
+/* Show Home as Flexbox when Home is selected */
+
+.main-content.show-all-sections > #home,
+.main-content > #home.active-section {
+    display: flex !important;
+}
+
+
+/* =====================================================
+   5. LEFT SIDE - HOME TEXT
+===================================================== */
+
+.home-content {
+    flex: 1 1 0;
+
+    width: 100%;
+    max-width: 680px;
+
+    min-width: 0;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   6. RIGHT SIDE - PROFILE IMAGE
+===================================================== */
+
+.home-visual {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex: 0 1 420px;
+
+    min-width: 0;
+
+    position: relative;
+    z-index: 1;
+}
+
+.home-photo-ring {
+    width: min(100%, 400px);
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.home-photo-ring img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   7. TABLET AND MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 850px) {
+
+    /* Put navbar back at the top on smaller screens */
+
+    .nav-overlay {
+        position: relative;
+        inset: auto;
+
+        pointer-events: auto;
+    }
+
+    .site-header {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 12px;
+
+        padding: 16px 4%;
+
+        min-height: auto;
+    }
+
+    .site-header .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 6px;
+    }
+
+
+    /* Stack image and text on smaller screens */
+
+    #home {
+        flex-direction: column !important;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 40px;
+
+        min-height: auto;
+
+        padding: 60px 6%;
+    }
+
+    .home-content {
+        width: 100%;
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+    .home-visual {
+        width: 100%;
+        max-width: 400px;
+
+        flex: 0 1 auto;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =====================================================
+   8. SMALL MOBILE SCREENS
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .nav-logo {
+        font-size: 24px;
+    }
+
+    .site-header .navigation {
+        gap: 4px;
+    }
+
+    .site-header .nav-link {
+        padding: 8px 10px;
+
+        font-size: 13px;
+    }
+
+    #home {
+        padding: 40px 5%;
+    }
+
+    .home-visual {
+        max-width: 300px;
+    }
+
+}
+
+/* =========================================
+   FIX NAVBAR POSITION - TOP OF PAGE
+========================================= */
+
+.nav-overlay {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 2000;
+
+    pointer-events: auto;
+}
+
+.site-header {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    transform: none;
+
+    width: 100%;
+}
