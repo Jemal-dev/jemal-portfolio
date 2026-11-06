@@ -199,15 +199,22 @@ function updateMenuIcon() {
 
 function closeMobileMenu() {
 
+    // Close the mobile hamburger menu
+    const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+
+    if (mobileNavToggle) {
+        mobileNavToggle.checked = false;
+    }
+
+    // Close the old sidebar if it exists
     if (!sidebar) {
         return;
     }
 
-    sidebar.classList.remove(
-        "mobile-open"
-    );
+    sidebar.classList.remove("mobile-open");
 
     updateMenuIcon();
+
 }
 
 

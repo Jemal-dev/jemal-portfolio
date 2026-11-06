@@ -125,44 +125,43 @@
 
 
 <!-- =========================================
-     JEMAL SEID - CENTERED NAVIGATION
+     JEMAL SEID - NAVIGATION
 ========================================= -->
 
 <div class="nav-overlay">
 
     <header class="site-header">
 
-        <!-- LOGO -->
-        <a href="#home" class="nav-logo" aria-label="Jemal Seid Home">
+        <!-- LOGO: TOP LEFT -->
+        <a href="#home" class="nav-logo">
             Jemal<span>Seid</span>
         </a>
 
-        <!-- NAVIGATION -->
+        <!-- MOBILE MENU BUTTON: TOP RIGHT -->
+        <input
+            type="checkbox"
+            id="mobile-nav-toggle"
+            class="mobile-nav-toggle"
+        >
+
+        <label
+            for="mobile-nav-toggle"
+            class="mobile-menu-button"
+            aria-label="Toggle navigation"
+        >
+            <i class="fa-solid fa-bars menu-open-icon"></i>
+            <i class="fa-solid fa-xmark menu-close-icon"></i>
+        </label>
+
+        <!-- HOME TO CONTACT LINKS -->
         <nav class="navigation" aria-label="Main navigation">
 
-            <a href="#home" class="nav-link active">
-                Home
-            </a>
-
-            <a href="#about" class="nav-link">
-                About
-            </a>
-
-            <a href="#resume" class="nav-link">
-                Education
-            </a>
-
-            <a href="#skills" class="nav-link">
-                Skills
-            </a>
-
-            <a href="#portfolio" class="nav-link">
-                Projects
-            </a>
-
-            <a href="#thanks" class="nav-link">
-                Contact
-            </a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#resume" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#portfolio" class="nav-link">Projects</a>
+            <a href="#thanks" class="nav-link">Contact</a>
 
         </nav>
 
@@ -178,78 +177,78 @@
 <main class="main-content">
 
 
-   <!-- ==============================
-     HOME / HERO SECTION
-=============================== -->
+    <!-- ==============================
+         HOME / HERO SECTION
+    =============================== -->
 
-<section id="home" class="home">
+    <section id="home" class="home">
 
-    <div class="home-content">
+        <div class="home-content">
 
-        <h1 class="home-title">
-            I build
-            <span>modern web applications</span>
-            that solve real-world problems.
-        </h1>
+            <h1 class="home-title">
+                I build
+                <span>modern web applications</span>
+                that solve real-world problems.
+            </h1>
 
-        <h3 class="home-role">
-            
-            <span id="typing" class="typing"></span>
-        </h3>
+            <h3 class="home-role">
+                <span id="typing" class="typing"></span>
+            </h3>
 
-        <div class="home-intro">
-            I help individuals, businesses, and growing teams turn ideas
-             into functional digital products.
-             From modern websites to full-stack applications and management systems, 
-             I focus on building responsive, user-friendly, and reliable solutions through clean code, 
-             thoughtful design, and effective problem-solving.
+            <div class="home-intro">
+                I help individuals, businesses, and growing teams turn ideas
+                into functional digital products.
+                From modern websites to full-stack applications and management systems,
+                I focus on building responsive, user-friendly, and reliable solutions
+                through clean code, thoughtful design, and effective problem-solving.
+            </div>
 
-        </div>
+            <div class="home-tags">
+                <span>Frontend + Backend</span>
+                <span>Problem Solving</span>
+                <span>Telegram Bots</span>
+                <span>Database Management</span>
+            </div>
 
-        <div class="home-tags">
-            <span>Frontend + Backend</span>
-            <span>Problem Solving</span>
-            <span>Telegram Bots</span>
-            <span>Database Management</span>
-        </div>
+            <div class="home-actions">
 
-        <div class="home-actions">
+                <a href="mailto:jemal2415@gmail.com?subject=Project%20Inquiry"
+                   class="home-button primary-button">
+                    Start a Project
+                </a>
 
-            <a href="mailto:jemal2415@gmail.com?subject=Project%20Inquiry"
-               class="home-button primary-button">
-                Start a Project
-            </a>
+                <a href="#portfolio"
+                   class="home-button secondary-button">
+                    View Projects
+                </a>
 
-            <a href="#portfolio"
-               class="home-button secondary-button">
-                View Projects 
-            </a>
+                <a href="assets/Jemal-Seid-CV.pdf"
+                   download
+                   class="home-button resume-button">
+                    Download Resume
+                </a>
 
-            <a href="assets/Jemal-Seid-CV.pdf"
-               download
-               class="home-button resume-button">
-                Download Resume
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="home-visual">
-
-        <div class="home-photo-ring">
-
-            <img
-                src="images/profile.jpg"
-                alt="Jemal Seid - Software Developer"
-            >
+            </div>
 
         </div>
 
-    </div>
 
-</section>
+        <!-- PROFILE PHOTO -->
 
+        <div class="home-visual">
+
+            <div class="home-photo-ring">
+
+                <img
+                    src="images/profile.jpg"
+                    alt="Jemal Seid - Software Developer"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
 
  
 <!-- ==============================
