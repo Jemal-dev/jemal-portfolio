@@ -200,21 +200,19 @@ function updateMenuIcon() {
 function closeMobileMenu() {
 
     // Close the mobile hamburger menu
-    const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+    const mobileNavToggle =
+        document.getElementById("mobile-nav-toggle");
 
     if (mobileNavToggle) {
         mobileNavToggle.checked = false;
     }
 
     // Close the old sidebar if it exists
-    if (!sidebar) {
-        return;
+    if (typeof sidebar !== "undefined" && sidebar) {
+        sidebar.classList.remove("mobile-open");
     }
 
-    sidebar.classList.remove("mobile-open");
-
     updateMenuIcon();
-
 }
 
 
@@ -263,68 +261,13 @@ if (
         }
     );
 }
-
-
-
 /* =====================================================
-   CLOSE MENU AFTER NAVIGATION
-===================================================== */
-
-navLinks.forEach(
-    function (link) {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                closeMobileMenu();
-            }
-        );
-    }
-);
-
-
-/* =====================================================
-   ABOUT IMAGE ON NAVIGATION CLICK
+   ABOUT SECTION REFERENCE
 ===================================================== */
 
 const aboutSection =
     document.getElementById("about");
 
-const aboutNavLink =
-    document.querySelector(
-        '.navigation .nav-link[href="#about"]'
-    );
-
-
-if (aboutSection && aboutNavLink) {
-
-    navLinks.forEach(
-        function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    if (link === aboutNavLink) {
-
-                        // Show image when About is clicked
-                        aboutSection.classList.add(
-                            "show-about-photo"
-                        );
-
-                    } else {
-
-                        // Hide image when another section is clicked
-                        aboutSection.classList.remove(
-                            "show-about-photo"
-                        );
-                    }
-                }
-            );
-        }
-    );
-}
 
 
 
@@ -519,20 +462,25 @@ function showSection(sectionId, updateAddress = true) {
         isHome
     );
 
+allSections.forEach(function (section) {
 
-    allSections.forEach(function (section) {
+    const isVisible =
+        isHome || section === selectedSection;
 
-        section.classList.toggle(
-            "active-section",
-            !isHome && section === selectedSection
-        );
+    // Hide every section except the selected one.
+    // Home displays all sections.
+    section.hidden = !isVisible;
 
-        // Ensure selected sections can display their reveal animation
-        if (isHome || section === selectedSection) {
-            section.classList.add("show");
-        }
+    section.classList.toggle(
+        "active-section",
+        !isHome && section === selectedSection
+    );
 
-    });
+    if (isVisible) {
+        section.classList.add("show");
+    }
+
+});
 
 
     // Update active navigation link

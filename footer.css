@@ -441,3 +441,11 @@
     }
 
 }
+
+/* =====================================================
+   PORTFOLIO SECTION VISIBILITY
+===================================================== */
+
+.main-content section[id][hidden] {
+    display: none !important;
+}
