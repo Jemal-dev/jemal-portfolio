@@ -221,7 +221,7 @@ function loginPage(showError = false) {
             "Content-Type": "text/html; charset=UTF-8",
             "Cache-Control": "no-store",
             "X-Content-Type-Options": "nosniff",
-            "Referrer-Policy": "no-referrer",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
             "Content-Security-Policy":
                 "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'"
         }
@@ -415,24 +415,9 @@ try {
 }
 
 if (!validOrigin) {
-
-    const debugInfo = {
-        origin: origin || "(missing)",
-        requestHost: requestHost,
-        requestUrlOrigin: url.origin,
-        referer: request.headers.get("Referer") || "(missing)"
-    };
-
-    return new Response(
-        JSON.stringify(debugInfo, null, 2),
-        {
-            status: 403,
-            headers: {
-                "Content-Type": "application/json",
-                "Cache-Control": "no-store"
-            }
-        }
-    );
+    return new Response("Forbidden", {
+        status: 403
+    });
 }
 
 
