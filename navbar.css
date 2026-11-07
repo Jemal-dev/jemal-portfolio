@@ -628,3 +628,46 @@ section[id] {
 
     width: 100%;
 }
+
+
+/* =========================================
+   PORTFOLIO LOGOUT BUTTON
+========================================= */
+
+.site-header .navigation .nav-link.logout-link {
+    color: #fca5a5;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.35);
+
+    transition: all 0.3s ease;
+}
+
+.site-header .navigation .nav-link.logout-link:hover {
+    color: #ffffff;
+    background: #dc2626;
+    border-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+.site-header .navigation .nav-link.logout-link:focus-visible {
+    outline: 2px solid #fca5a5;
+    outline-offset: 3px;
+}
+
+/* Mobile Logout styling */
+
+@media (max-width: 768px) {
+
+    .nav-overlay .site-header .navigation .nav-link.logout-link {
+        color: #fca5a5 !important;
+        background: rgba(248, 113, 113, 0.08) !important;
+        border: 1px solid rgba(248, 113, 113, 0.35) !important;
+    }
+
+    .nav-overlay .site-header .navigation .nav-link.logout-link:hover {
+        color: #ffffff !important;
+        background: #dc2626 !important;
+        border-color: #dc2626 !important;
+    }
+
+}
