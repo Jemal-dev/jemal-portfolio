@@ -395,13 +395,31 @@ export async function onRequest(context) {
 
         if (request.method === "POST") {
 
-            const origin = request.headers.get("Origin");
+            
+const origin = request.headers.get("Origin");
+const requestHost = request.headers.get("Host") || url.host;
 
-            if (origin !== url.origin) {
-                return new Response("Forbidden", {
-                    status: 403
-                });
-            }
+let validOrigin = false;
+
+try {
+    const parsedOrigin = new URL(origin);
+
+    validOrigin =
+        parsedOrigin.protocol === "https:" &&
+        parsedOrigin.origin === origin &&
+        parsedOrigin.host.toLowerCase() ===
+            requestHost.toLowerCase();
+
+} catch {
+    validOrigin = false;
+}
+
+if (!validOrigin) {
+    return new Response("Forbidden", {
+        status: 403
+    });
+}
+
 
             const contentType =
                 request.headers.get("Content-Type") || "";
