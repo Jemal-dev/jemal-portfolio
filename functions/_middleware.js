@@ -15,9 +15,10 @@ const SESSION_MESSAGE = "jemal-portfolio-authenticated-v1";
    HTML LOGIN PAGE
 ========================================= */
 
+
 function loginPage(showError = false) {
     const errorMessage = showError
-        ? '<p class="error" role="alert">Incorrect password. Please try again.</p>'
+        ? '<p class="error" role="alert">Incorrect username or password. Please try again.</p>'
         : "";
 
     const html = `<!DOCTYPE html>
@@ -25,10 +26,9 @@ function loginPage(showError = false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="robots" content="noindex, nofollow">
 
-    <title>Portfolio Access | Jemal Seid</title>
+    <title>Portfolio Login | Jemal Seid</title>
 
     <style>
         * {
@@ -40,13 +40,10 @@ function loginPage(showError = false) {
         body {
             min-height: 100vh;
             padding: 20px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             font-family: Arial, sans-serif;
-
             color: #ffffff;
             background: #0a0f1a;
         }
@@ -54,26 +51,19 @@ function loginPage(showError = false) {
         .login-container {
             width: 100%;
             max-width: 420px;
-
             padding: 38px 30px;
-
             background: #111827;
-
             border: 1px solid rgba(59, 130, 246, 0.3);
             border-radius: 18px;
-
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
-
             text-align: center;
         }
 
         .logo {
             color: #3b82f6;
-
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 3px;
-
             margin-bottom: 22px;
         }
 
@@ -86,49 +76,50 @@ function loginPage(showError = false) {
             color: #aab6c8;
             font-size: 14px;
             line-height: 1.7;
-
             margin-bottom: 28px;
         }
 
-        .password-input {
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #d1d5db;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .login-input {
             width: 100%;
             height: 50px;
-
             padding: 0 15px;
-
             color: #ffffff;
             background: #0a0f1a;
-
             border: 1px solid #374151;
             border-radius: 9px;
-
             outline: none;
             font-size: 15px;
-
-            margin-bottom: 16px;
-
             transition: border-color 0.25s ease;
         }
 
-        .password-input:focus {
+        .login-input:focus {
             border-color: #3b82f6;
         }
 
         .unlock-button {
             width: 100%;
             min-height: 50px;
-
+            margin-top: 5px;
             color: #ffffff;
             background: #3b82f6;
-
             border: none;
             border-radius: 9px;
-
             font-size: 14px;
             font-weight: 700;
-
             cursor: pointer;
-
             transition: background 0.25s ease,
                         transform 0.25s ease;
         }
@@ -141,12 +132,11 @@ function loginPage(showError = false) {
         .error {
             color: #f87171;
             font-size: 13px;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .footer {
             margin-top: 24px;
-
             color: #778397;
             font-size: 12px;
         }
@@ -169,27 +159,46 @@ function loginPage(showError = false) {
 
         <div class="logo">JEMAL SEID</div>
 
-        <h1>Portfolio Access</h1>
+        <h1>Portfolio Login</h1>
 
         <p class="description">
-            This portfolio is password protected.
-            Please enter the shared password to continue.
+            Please enter your username and password
+            to access this portfolio.
         </p>
 
         ${errorMessage}
 
         <form action="${LOGIN_PATH}" method="POST">
 
-            <input
-                class="password-input"
-                type="password"
-                name="password"
-                placeholder="Enter portfolio password"
-                autocomplete="current-password"
-                aria-label="Portfolio password"
-                required
-                autofocus
-            >
+            <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    class="login-input"
+                    id="username"
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                    autocapitalize="none"
+                    required
+                    autofocus
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    class="login-input"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
 
             <button class="unlock-button" type="submit">
                 Unlock Portfolio
@@ -218,6 +227,7 @@ function loginPage(showError = false) {
         }
     });
 }
+
 
 /* =========================================
    SECURE SESSION TOKEN
@@ -349,7 +359,11 @@ export async function onRequest(context) {
 
     /* Fail closed if secrets are missing */
 
-    if (!env.PORTFOLIO_PASSWORD || !env.SESSION_SECRET) {
+    if (
+    !env.PORTFOLIO_USERNAME ||
+    !env.PORTFOLIO_PASSWORD ||
+    !env.SESSION_SECRET
+) {
         return new Response(
             "Portfolio access is not configured yet.",
             {
@@ -420,14 +434,22 @@ export async function onRequest(context) {
 
             const form = new URLSearchParams(body);
 
-            const submittedPassword = form.get("password") || "";
+            const submittedUsername = form.get("username") || "";
+const submittedPassword = form.get("password") || "";
 
-            if (!constantTimeEqual(
-                submittedPassword,
-                env.PORTFOLIO_PASSWORD
-            )) {
-                return loginPage(true);
-            }
+const validUsername = constantTimeEqual(
+    submittedUsername,
+    env.PORTFOLIO_USERNAME
+);
+
+const validPassword = constantTimeEqual(
+    submittedPassword,
+    env.PORTFOLIO_PASSWORD
+);
+
+if (!validUsername || !validPassword) {
+    return loginPage(true);
+}
 
             const expiresAt =
     Math.floor(Date.now() / 1000) + SESSION_LIFETIME;
