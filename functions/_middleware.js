@@ -415,9 +415,24 @@ try {
 }
 
 if (!validOrigin) {
-    return new Response("Forbidden", {
-        status: 403
-    });
+
+    const debugInfo = {
+        origin: origin || "(missing)",
+        requestHost: requestHost,
+        requestUrlOrigin: url.origin,
+        referer: request.headers.get("Referer") || "(missing)"
+    };
+
+    return new Response(
+        JSON.stringify(debugInfo, null, 2),
+        {
+            status: 403,
+            headers: {
+                "Content-Type": "application/json",
+                "Cache-Control": "no-store"
+            }
+        }
+    );
 }
 
 
