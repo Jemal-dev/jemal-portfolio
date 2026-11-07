@@ -249,7 +249,9 @@
 
 }
 
-/* Mobile */
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+========================================= */
 
 @media (max-width: 520px) {
 
@@ -271,12 +273,63 @@
         font-size: 12px;
     }
 
+    /* CTA BUTTON LAYOUT: TWO ROWS */
+
     .home-actions {
-        flex-direction: column;
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        align-items: center;
+
+        column-gap: 10px;
+        row-gap: 12px;
+
+        width: 100%;
     }
 
-    .home-button {
+    /* Keep the first two buttons side by side */
+
+    .home-actions .primary-button {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .home-actions .secondary-button {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* Make both first-row buttons equal in width */
+
+    .home-actions .home-button {
         width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        min-height: 49px;
+
+        padding: 0 6px;
+
+        font-size: clamp(10px, 3.4vw, 12px);
+
+        white-space: nowrap;
+    }
+
+    /* Center Download Resume on the second row */
+
+    .home-actions .resume-button {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        justify-self: center;
+
+        width: fit-content;
+        max-width: 100%;
+
+        margin-right: 0;
+
+        padding: 0 22px;
     }
 
     .home-visual {
@@ -307,6 +360,7 @@
     font-size: inherit;
     font-weight: inherit;
 }
+
 @media (max-width: 520px) {
     .home-role {
         font-size: 16px;
@@ -324,6 +378,7 @@
 }
 
 /* Mobile */
+
 @media (max-width: 520px) {
     .home-role {
         height: 3.4em;
@@ -336,4 +391,3 @@
     animation: none !important;
     transform: none !important;
 }
-
