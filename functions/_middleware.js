@@ -283,6 +283,157 @@ function constantTimeEqual(a, b) {
     return difference === 0;
 }
 
+
+
+/* =========================================
+   LOGIN ATTEMPT PROTECTION
+========================================= */
+
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOGIN_WINDOW_SECONDS = 60;
+const LOGIN_LOCKOUT_SECONDS = 15 * 60;
+
+/* Hash visitor IP before storing it in D1 */
+
+async function hashClientIp(ipAddress, secret) {
+
+    const key = await crypto.subtle.importKey(
+        "raw",
+        new TextEncoder().encode(secret),
+        {
+            name: "HMAC",
+            hash: "SHA-256"
+        },
+        false,
+        ["sign"]
+    );
+
+    const signature = await crypto.subtle.sign(
+        "HMAC",
+        key,
+        new TextEncoder().encode(ipAddress)
+    );
+
+    return Array.from(new Uint8Array(signature))
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+/* Read the current failed-login record */
+
+async function getLoginAttemptRecord(db, ipHash) {
+
+    return await db.prepare(`
+        SELECT
+            attempt_count,
+            window_started_at,
+            blocked_until
+        FROM login_attempts
+        WHERE ip_hash = ?
+        LIMIT 1
+    `)
+    .bind(ipHash)
+    .first();
+}
+
+/* Record one failed login attempt atomically */
+
+async function recordFailedLogin(db, ipHash, now) {
+
+
+
+    await db.prepare(`
+        INSERT INTO login_attempts (
+            ip_hash,
+            attempt_count,
+            window_started_at,
+            blocked_until,
+            updated_at
+        )
+        VALUES (?, 1, ?, 0, ?)
+
+        ON CONFLICT(ip_hash) DO UPDATE SET
+
+            attempt_count = CASE
+                WHEN login_attempts.blocked_until > ?
+                    THEN login_attempts.attempt_count
+                WHEN (? - login_attempts.window_started_at)
+                    >= ${LOGIN_WINDOW_SECONDS}
+                    THEN 1
+                ELSE login_attempts.attempt_count + 1
+            END,
+
+            window_started_at = CASE
+                WHEN login_attempts.blocked_until > ?
+                    THEN login_attempts.window_started_at
+                WHEN (? - login_attempts.window_started_at)
+                    >= ${LOGIN_WINDOW_SECONDS}
+                    THEN ?
+                ELSE login_attempts.window_started_at
+            END,
+
+            blocked_until = CASE
+                WHEN login_attempts.blocked_until > ?
+                    THEN login_attempts.blocked_until
+                WHEN (? - login_attempts.window_started_at)
+                    >= ${LOGIN_WINDOW_SECONDS}
+                    THEN 0
+                WHEN login_attempts.attempt_count + 1
+                    >= ${MAX_LOGIN_ATTEMPTS}
+                    THEN ?
+                ELSE login_attempts.blocked_until
+            END,
+
+            updated_at = ?
+    `)
+    .bind(
+        ipHash,
+        now,
+        now,
+        now,
+        now,
+        now,
+        now,
+        now,
+        now,
+        now,
+        now + LOGIN_LOCKOUT_SECONDS,
+        now
+    )
+    .run();
+
+    return await getLoginAttemptRecord(db, ipHash);
+}
+
+/* Remove failed attempts after successful login */
+
+async function clearLoginAttempts(db, ipHash) {
+
+    await db.prepare(`
+        DELETE FROM login_attempts
+        WHERE ip_hash = ?
+    `)
+    .bind(ipHash)
+    .run();
+}
+
+/* Return a temporary lockout response */
+
+function tooManyAttemptsResponse(retryAfter) {
+
+    return new Response(
+        "Too many unsuccessful login attempts. Please try again later.",
+        {
+            status: 429,
+            headers: {
+                "Content-Type": "text/plain; charset=UTF-8",
+                "Cache-Control": "no-store",
+                "Retry-After": String(retryAfter)
+            }
+        }
+    );
+}
+
 /* =========================================
    CHECK AUTHENTICATION COOKIE
 ========================================= */
@@ -362,7 +513,8 @@ export async function onRequest(context) {
     if (
     !env.PORTFOLIO_USERNAME ||
     !env.PORTFOLIO_PASSWORD ||
-    !env.SESSION_SECRET
+    !env.SESSION_SECRET ||
+    !env.LOGIN_ATTEMPTS_DB
 ) {
         return new Response(
             "Portfolio access is not configured yet.",
@@ -393,97 +545,185 @@ export async function onRequest(context) {
 
         /* Process password submission */
 
-        if (request.method === "POST") {
 
-            
-const origin = request.headers.get("Origin");
-const requestHost = request.headers.get("Host") || url.host;
+if (request.method === "POST") {
 
-let validOrigin = false;
+    /* =====================================
+       VERIFY REQUEST ORIGIN
+    ===================================== */
 
-try {
-    const parsedOrigin = new URL(origin);
+    const origin = request.headers.get("Origin");
+    const requestHost = request.headers.get("Host") || url.host;
 
-    validOrigin =
-        parsedOrigin.protocol === "https:" &&
-        parsedOrigin.origin === origin &&
-        parsedOrigin.host.toLowerCase() ===
-            requestHost.toLowerCase();
+    let validOrigin = false;
 
-} catch {
-    validOrigin = false;
-}
+    try {
+        const parsedOrigin = new URL(origin);
 
-if (!validOrigin) {
-    return new Response("Forbidden", {
-        status: 403
-    });
-}
+        validOrigin =
+            parsedOrigin.protocol === "https:" &&
+            parsedOrigin.origin === origin &&
+            parsedOrigin.host.toLowerCase() ===
+                requestHost.toLowerCase();
 
+    } catch {
+        validOrigin = false;
+    }
 
-            const contentType =
-                request.headers.get("Content-Type") || "";
+    if (!validOrigin) {
+        return new Response("Forbidden", {
+            status: 403
+        });
+    }
 
-            if (!contentType.startsWith(
-                "application/x-www-form-urlencoded"
-            )) {
-                return new Response("Unsupported content type", {
-                    status: 415
-                });
+    /* =====================================
+       VALIDATE REQUEST SIZE AND TYPE
+    ===================================== */
+
+    const contentType =
+        request.headers.get("Content-Type") || "";
+
+    if (!contentType.startsWith(
+        "application/x-www-form-urlencoded"
+    )) {
+        return new Response("Unsupported content type", {
+            status: 415
+        });
+    }
+
+    const contentLength = Number(
+        request.headers.get("Content-Length") || 0
+    );
+
+    if (contentLength > 4096) {
+        return new Response("Request too large", {
+            status: 413
+        });
+    }
+
+    const body = await request.text();
+
+    if (body.length > 4096) {
+        return new Response("Request too large", {
+            status: 413
+        });
+    }
+
+    /* =====================================
+       IDENTIFY VISITOR PRIVATELY
+    ===================================== */
+
+    const clientIp = request.headers.get("CF-Connecting-IP");
+
+    if (!clientIp) {
+        return new Response(
+            "Unable to verify visitor address. Please try again.",
+            {
+                status: 503,
+                headers: {
+                    "Cache-Control": "no-store"
+                }
             }
+        );
+    }
 
-            const contentLength = Number(
-                request.headers.get("Content-Length") || 0
+    const now = Math.floor(Date.now() / 1000);
+
+    const ipHash = await hashClientIp(
+        clientIp,
+        env.SESSION_SECRET
+    );
+
+    /* =====================================
+       CHECK TEMPORARY LOGIN LOCKOUT
+    ===================================== */
+
+    const currentAttempts = await getLoginAttemptRecord(
+        env.LOGIN_ATTEMPTS_DB,
+        ipHash
+    );
+
+    if (
+        currentAttempts &&
+        currentAttempts.blocked_until > now
+    ) {
+        return tooManyAttemptsResponse(
+            currentAttempts.blocked_until - now
+        );
+    }
+
+    /* =====================================
+       VERIFY USERNAME AND PASSWORD
+    ===================================== */
+
+    const form = new URLSearchParams(body);
+
+    const submittedUsername = form.get("username") || "";
+    const submittedPassword = form.get("password") || "";
+
+    const validUsername = constantTimeEqual(
+        submittedUsername,
+        env.PORTFOLIO_USERNAME
+    );
+
+    const validPassword = constantTimeEqual(
+        submittedPassword,
+        env.PORTFOLIO_PASSWORD
+    );
+
+    /* =====================================
+       RECORD FAILED LOGIN
+    ===================================== */
+
+    if (!validUsername || !validPassword) {
+
+        const updatedRecord = await recordFailedLogin(
+            env.LOGIN_ATTEMPTS_DB,
+            ipHash,
+            now
+        );
+
+        if (
+            updatedRecord &&
+            updatedRecord.blocked_until > now
+        ) {
+            return tooManyAttemptsResponse(
+                updatedRecord.blocked_until - now
             );
+        }
 
-            if (contentLength > 4096) {
-                return new Response("Request too large", {
-                    status: 413
-                });
-            }
+        return loginPage(true);
+    }
 
-            const body = await request.text();
+    /* =====================================
+       CLEAR ATTEMPTS AFTER SUCCESSFUL LOGIN
+    ===================================== */
 
-            if (body.length > 4096) {
-                return new Response("Request too large", {
-                    status: 413
-                });
-            }
+    await clearLoginAttempts(
+        env.LOGIN_ATTEMPTS_DB,
+        ipHash
+    );
 
-            const form = new URLSearchParams(body);
+    /* =====================================
+       CREATE AUTHENTICATED SESSION
+    ===================================== */
 
-            const submittedUsername = form.get("username") || "";
-const submittedPassword = form.get("password") || "";
+    const expiresAt =
+        Math.floor(Date.now() / 1000) + SESSION_LIFETIME;
 
-const validUsername = constantTimeEqual(
-    submittedUsername,
-    env.PORTFOLIO_USERNAME
-);
+    const token = await createSessionToken(
+        env.SESSION_SECRET,
+        expiresAt
+    );
 
-const validPassword = constantTimeEqual(
-    submittedPassword,
-    env.PORTFOLIO_PASSWORD
-);
+    const cookie =
+        `${COOKIE_NAME}=${token}; ` +
+        `Path=/; Max-Age=${SESSION_LIFETIME}; ` +
+        "HttpOnly; Secure; SameSite=Strict";
 
-if (!validUsername || !validPassword) {
-    return loginPage(true);
+    return redirectResponse(url.origin + "/", cookie);
 }
 
-            const expiresAt =
-    Math.floor(Date.now() / 1000) + SESSION_LIFETIME;
-
-const token = await createSessionToken(
-    env.SESSION_SECRET,
-    expiresAt
-);
-
-            const cookie =
-                `${COOKIE_NAME}=${token}; ` +
-                `Path=/; Max-Age=${SESSION_LIFETIME}; ` +
-                "HttpOnly; Secure; SameSite=Strict";
-
-            return redirectResponse(url.origin + "/", cookie);
-        }
 
         return new Response("Method not allowed", {
             status: 405,
